@@ -7,9 +7,13 @@
             <form class="mt-8 space-y-6" method="POST" action="/register">
                 @csrf
                 <div class="rounded-md shadow-sm -space-y-px">
-                    <x-auth.input name="name" label="Name" type="text" placeholder="Nama" />
-                    <x-auth.input name="email" label="Email address" type="email" placeholder="Email address" />
-                    <x-auth.input name="password" label="Password" type="password" placeholder="Password" />
+                    <x-auth.input name="name" label="Name" type="text" placeholder="Nama" :required="true" />
+                    <x-auth.input name="email" label="Email address" type="email" placeholder="Email address"
+                        :required="true" />
+                    <x-auth.input name="password" type="password" label="Password" placeholder="Password" />
+                    <x-auth.input name="password_confirmation" type="password" label="Confirm Password"
+                        placeholder="Confirm Password" showPassword="true" />
+
                 </div>
 
                 <div class="flex items-center justify-between">

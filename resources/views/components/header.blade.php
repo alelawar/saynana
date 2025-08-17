@@ -15,6 +15,9 @@
 
             <div class="flex items-center gap-4">
                 <a href="/story">Dapatkan Diskon</a>
+                @can('seller')
+                <a href="/dashboard">Dashboard</a>
+                @endcan
                @livewire('cart')
                 @auth()
                 <a href="/profile" class="py-3 px-2.5 bg-slate-200 rounded-lg">Profile</a>

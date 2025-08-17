@@ -8,8 +8,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <p><strong>Nama:</strong> {{ $user->name }}</p>
                 <p><strong>Email:</strong> {{ $user->email }}</p>
-                <p><strong>Alamat:</strong> {{ $user->adress }}</p>
-                <p><strong>Telepon:</strong> {{ $user->phone }}</p>
+                <p><strong>Alamat:</strong> {{ $user->adress ?? 'Belum ada' }}</p>
+                <p><strong>Telepon:</strong> {{ $user->phone ?? 'Belum ada' }}</p>
                 {{-- <p><strong>Role:</strong> {{ ucfirst($user->role) }}</p> --}}
                 <form action="/logout" method="post">
                     @csrf

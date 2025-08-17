@@ -27,7 +27,7 @@ Route::get( '/checkout/{code}', [CheckoutController::class,'getData'])->name('ge
 Route::get( '/checkout/detail/{code}', [CheckoutController::class,'detailOrder'])->name('getDetailCheckout');
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::post('/register', [AuthController::class,'register'])->name('register');
 Route::post('/login', [AuthController::class,'login'])->name('login');

@@ -24,21 +24,21 @@ class AuthController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
 
-        $percentage = rand(10,20);
-        $code = 'WELCOME-'. strtoupper(Str::random(6));
+        $percentage = rand(10, 20);
+        $code = 'WELCOME-' . strtoupper(Str::random(6));
 
         $voucher = Voucher::create([
             'code' => $code,
             'percentage' => $percentage,
-            'max_uses' => 1, 
-            'is_public' => false, 
+            'max_uses' => 1,
+            'is_public' => false,
         ]);
 
         UserVoucher::create([
@@ -70,7 +70,8 @@ class AuthController extends Controller
         return back()->with('error', 'Username / password salah!');
     }
 
-    public function Logout() {
+    public function Logout()
+    {
         Auth::logout();
         return redirect('/login')->with('success', 'Logout Berhasil!');
     }
