@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\Voucher;
 use App\Models\Province;
 use App\Models\DataOrder;
@@ -136,6 +137,21 @@ class CheckoutController extends Controller
             ->where('status', 'pending')
             ->firstOrFail();
 
+        if ($request->has('items')) {
+            foreach ($request->items as $item) {
+                $product = Product::find($item['product_id']);
+                if ($product) {
+                    if ($product->stock < $item['qty']) {
+                        return back()->with('error', "Stok untuk {$product->name} tidak mencukupi!");
+                    }
+
+                    $product->stock -= $item["qty"];
+                    $product->save();
+                }
+            }
+        }
+
+
         // Kalau ada voucher_code di payment, baru simpan voucher_id
         if (!empty($validated['voucher_code'])) {
             $voucher = Voucher::where('code', $validated['voucher_code'])->first();
@@ -185,17 +201,22 @@ class CheckoutController extends Controller
     public function detailOrder($code)
     {
         $order = Order::where('code', $code)
-            ->where('status', 'confirmed')
+            ->whereNotIn('status', ['pending'])
+            ->with([
+                'shipping',
+                'items.product',
+                'dataOrder.city.province'
+            ])
             ->firstOrFail();
 
-        $items     = $order->items()->with('product')->get();
-        $dataOrder = $order->dataOrder()->with('city.province')->first();
+        $items     = $order->items;
+        $dataOrder = $order->dataOrder;
         $city      = $dataOrder?->city;
 
         // dd($city);
 
 
         // dd($order, $dataOrder, $city, $items);
-        return view('checkout.detail', compact('order','items','city', 'dataOrder'));
+        return view('checkout.detail', compact('order', 'items', 'city', 'dataOrder'));
     }
 }

@@ -1,5 +1,4 @@
 <x-dashboard.layout title="Dashboard">
-    {{-- <canvas id="chart_penjualan"></canvas> --}}
     <div class="max-w-7xl mx-auto">
         <div class="mb-8">
             <h1 class=" md:text-xl font-semibold">Ringkasan Pesanan</h1>
@@ -38,7 +37,7 @@
                     class="bg-white rounded-lg border border-slate-200 shadow-lg h-28 flex flex-col justify-between items-center p-2 relative">
                     <div class="flex flex-col items-center gap-1">
                         <div class="font-semibold text-lg">
-                            <p class="text-blue-400 text-xl md:text-2xl">{{$order_packed}}</p>
+                            <p class="text-blue-400 text-xl md:text-2xl">{{$order_shiped}}</p>
                         </div>
                         <p class="text-slate-600 text-xs text-center">Total Semua Order (Sudah Terkirim)
                         </p>

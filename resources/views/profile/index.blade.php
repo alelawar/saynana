@@ -33,6 +33,8 @@
                                 Rp{{ number_format($item->price, 0, ',', '.') }}</li>
                         @endforeach
                     </ul>
+
+                    <a href="/checkout/detail/{{ $order->code }}">Detail</a>
                 </div>
             @empty
                 <p class="text-gray-500">Belum ada riwayat order.</p>

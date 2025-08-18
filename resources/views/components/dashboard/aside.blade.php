@@ -19,6 +19,7 @@
     <nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
         <!-- Create Section -->
         <div class="mb-4">
+            <a href="/dashboard" class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-5 block">Utama</a>
             <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Buat Dan Cari</h3>
             <div class="space-y-1">
                 <a href="#"
@@ -36,7 +37,7 @@
                     <span class="mr-3 text-gray-500 group-hover:text-gray-900">🖼️</span>
                     Daftar User
                 </a>
-                <a href="#"
+                <a href="/dashboard/orders"
                     class="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md hover:bg-yellow-100 hover:text-gray-900 group">
                     <span class="mr-3 text-gray-500 group-hover:text-gray-900">👥</span>
                     Daftar Oderan

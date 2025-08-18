@@ -24,6 +24,14 @@
             </div>
         @endif
 
+        @if($order->shipping)
+            <div class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">Data Layanan</h2>
+                <p><strong>Penyedia:</strong> {{ $order->shipping->shipping_provider }}</p>
+                <p><strong>No.Resi:</strong> {{ $order->shipping->resi }}</p>
+            </div>
+        @endif
+
         {{-- Items --}}
         <div>
             <h2 class="text-xl font-semibold mb-2">Items</h2>

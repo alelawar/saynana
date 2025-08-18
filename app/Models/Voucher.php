@@ -10,10 +10,14 @@ class Voucher extends Model
         'id'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsToMany(User::class, 'user_vouchers')->withPivot('is_used')
-        ->withTimestamps();
+            ->withTimestamps();
     }
 
-    
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'voucher_id');
+    }
 }

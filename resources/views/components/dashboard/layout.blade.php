@@ -58,6 +58,12 @@
         </main>
     </div>
 
+    @if (session('success'))
+        <x-notification color="bg-green-700">{{ session('success') }}</x-notification>
+    @endif
+    @if (session('error'))
+        <x-notification color="bg-red-700">{{ session('error') }}</x-notification>
+    @endif
     @livewireScripts
 </body>
 

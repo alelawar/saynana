@@ -25,4 +25,14 @@ class Order extends Model
     {
         return $this->belongsTo(City::class);
     }
+
+    public function voucher()
+    {
+        return $this->belongsTo(Voucher::class, 'voucher_id');
+    }
+
+    public function shipping()
+    {
+        return $this->hasOne(Shipping::class);
+    }
 }

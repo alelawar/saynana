@@ -75,6 +75,11 @@
                     <input type="hidden" name="voucher_code" value="{{ $voucher_code->code }}">
                 @endif
 
+                @foreach ($order->items as $item)
+                    <input type="hidden" name="items[{{ $loop->index }}][product_id]" value="{{ $item->product_id }}">
+                    <input type="hidden" name="items[{{ $loop->index }}][qty]" value="{{ $item->qty }}">
+                @endforeach
+
                 <x-auth.input name="name" type="text" placeholder="Nama Anda" label="Nama"
                     value="{{ auth()->user()->name ?? '' }}" />
 

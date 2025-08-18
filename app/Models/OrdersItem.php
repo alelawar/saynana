@@ -11,6 +11,9 @@ class OrdersItem extends Model
         'id'
     ];
 
+    protected $with = ['product'];
+
+
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
