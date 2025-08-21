@@ -57,9 +57,13 @@ class EditPackingOrder extends Component
     {
         $this->validate();
 
-        // Cek kalau status sama dengan sebelumnya
+        $this->validate();
         if ($this->order_status === $this->order->status) {
             return back()->with('error', 'Status tidak boleh sama!');
+        }
+
+        if ($this->dataOrder && $this->message === $this->dataOrder->message) {
+            return back()->with('error', 'Pesan Perlu Diperbarui!');
         }
 
         try {

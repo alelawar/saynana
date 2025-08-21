@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProductSeeder extends Seeder
 {
@@ -13,28 +14,19 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-          DB::table('products')->insert([
-            [
-                'name' => 'Product A',
-                'description' => 'Description for Product A',
-                'price' => 100000,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Product B',
-                'description' => 'Description for Product B',
-                'price' => 200000,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Product C',
-                'description' => 'Description for Product C',
-                'price' => 300000,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
+        $products = [
+            ['name' => 'Sale Pisang Original', 'description' => 'Sale Wenak', 'price' => 13000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-original.png'],
+
+            ['name' => 'Sale Pisang Chocolate', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-chocolate.png'],
+
+            ['name' => 'Sale Pisang Strawberry', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-strawberry.png'],
+
+            ['name' => 'Sale Pisang Milk', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-milk.png'],
+
+        ];
+
+        foreach ($products as $p) {
+            Product::create($p);
+        }
     }
 }

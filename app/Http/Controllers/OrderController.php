@@ -21,15 +21,17 @@ class OrderController extends Controller
         $orders = Order::selectRaw('DAY(created_at) as day, COUNT(*) as total')
             ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
             // ->where('status', 'confirmed')
+            ->whereNotIn('status', ['pending'])
             ->groupBy('day')
             ->pluck('total', 'day');
 
         // ambil total harga per tanggal
-        $totals = Order::selectRaw('DAY(updated_at) as day, SUM(total_price) as total')
+        $totals = Order::selectRaw('DAY(created_at) as day, SUM(total_price) as total')
             ->whereBetween('updated_at', [$startOfMonth, $endOfMonth])
             ->where('status', 'success')
             ->groupBy('day')
             ->pluck('total', 'day');
+
 
         // bikin array tanggal sesuai jumlah hari di bulan ini
         $daysInMonth = Carbon::now()->daysInMonth;
@@ -42,8 +44,9 @@ class OrderController extends Controller
             $dataTotals[] = $totals[$day] ?? 0;
         }
 
-        $total_order = Order::where('status', 'confirmed')->count();
+        $total_order = Order::whereNotIn('status', ['pending'])->count();
         $total_revenue = Order::where('status', 'success')->sum('total_price');
+        $total_canceled = Order::where('status', 'canceled')->count();
 
         return view("dashboard.order", [
             'labels' => $labels, // sekarang labelnya angka tanggal
@@ -51,6 +54,7 @@ class OrderController extends Controller
             'dataTotals' => $dataTotals,
             'total_order' => $total_order,
             'total_revenue' => $total_revenue,
+            'total_canceled'=> $total_canceled,
         ]);
     }
 
@@ -100,6 +104,8 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        return redirect('/dashboard/orders?status=success')->with('success', 'Order berhasil dihapus.');
     }
 }

@@ -14,19 +14,14 @@ class VoucherSeeder extends Seeder
      */
     public function run(): void
     {
-        $vouchers = [];
+        Voucher::create([
+            'code' => 'DISKON10',
+            'percentage' => 10,
+        ]);
 
-        for ($i = 1; $i <= 5; $i++) {
-            $vouchers[] = [
-                'code'       => strtoupper(Str::random(8)), // kode unik random
-                'percentage' => rand(5, 50), // diskon random antara 5% - 50%
-                'max_uses'   => 5,
-                'is_public'  => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
-        }
-
-        Voucher::insert($vouchers);
+        Voucher::create([
+            'code' => 'DISKON20',
+            'percentage' => 20,
+        ]);
     }
 }

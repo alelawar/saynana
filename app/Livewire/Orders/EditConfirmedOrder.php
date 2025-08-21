@@ -41,13 +41,20 @@ class EditConfirmedOrder extends Component
     {
         return [
             'order_status' => 'required|in:confirmed,packing,canceled',
-            'message' => 'nullable|string|max:500',
+            'message' => 'required|string|max:500',
         ];
     }
 
     public function update()
     {
         $this->validate();
+        if ($this->order_status === $this->order->status) {
+            return back()->with('error', 'Status tidak boleh sama!');
+        }
+
+        if ($this->dataOrder && $this->message === $this->dataOrder->message) {
+            return back()->with('error', 'Pesan Perlu Diperbarui!');
+        }
 
         try {
             $this->order->update([
@@ -60,7 +67,7 @@ class EditConfirmedOrder extends Component
                 ]);
             }
 
-            return redirect('/dashboard/orders?status=packing')->with('success','Data Berhasil Diperbarui');
+            return redirect('/dashboard/orders?status=packing')->with('success', 'Data Berhasil Diperbarui');
         } catch (\Exception $e) {
             session()->flash('error', 'Gagal memperbarui pesanan: ' . $e->getMessage());
         }

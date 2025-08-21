@@ -8,7 +8,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <p><strong>Nama:</strong> {{ $user->name }}</p>
                 <p><strong>Email:</strong> {{ $user->email }}</p>
-                <p><strong>Alamat:</strong> {{ $user->adress ?? 'Belum ada' }}</p>
+                <p><strong>Alamat:</strong> {{ $user->address ?? 'Belum ada' }}</p>
                 <p><strong>Telepon:</strong> {{ $user->phone ?? 'Belum ada' }}</p>
                 {{-- <p><strong>Role:</strong> {{ ucfirst($user->role) }}</p> --}}
                 <form action="/logout" method="post">
@@ -42,18 +42,20 @@
         </div>
 
         {{-- Voucher User --}}
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-2xl font-bold mb-4">Voucher Saya</h2>
-            <div class="flex items-center gap-2">
-                <span id="voucher-code" class="">
-                    {{ $vouchers->voucher->code }}
-                </span>
-                <button onclick="copyVoucher()" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
-                    Salin
-                </button>
+        @if ($vouchers)
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-2xl font-bold mb-4">Voucher Saya</h2>
+                <div class="flex items-center gap-2">
+                    <span id="voucher-code" class="">
+                        {{ $vouchers->voucher->code }}
+                    </span>
+                    <button onclick="copyVoucher()" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
+                        Salin
+                    </button>
+                </div>
+                <span id="copy-msg" class="text-green-500 text-sm hidden">Tersalin ✅</span>
             </div>
-            <span id="copy-msg" class="text-green-500 text-sm hidden">Tersalin ✅</span>
-        </div>
+        @endif
 
         <script>
             function copyVoucher() {

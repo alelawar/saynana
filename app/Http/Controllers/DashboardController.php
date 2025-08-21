@@ -31,6 +31,7 @@ class DashboardController extends Controller
         $order_packed = Order::where('status', 'packing')->count();
         $order_shiped = Order::where('status', 'shipping')->count();
         $order_canceled = Order::where('status', 'canceled')->count();
+        $order_successed = Order::where('status', 'success')->count();
        
         // STOCK AND VOUCHER
         $product_stock = Product::sum('stock');
@@ -43,8 +44,8 @@ class DashboardController extends Controller
         $total_users = User::count();
 
         // FINANCE
-        $total_revenue = Order::where('status', 'confirmed')->sum('total_price');
+        $total_revenue = Order::where('status', 'success')->sum('total_price');
         // dd($order);
-        return view("dashboard.index", compact('total_order', 'total_users', 'total_revenue', 'total_selled_product', 'product_out_sotock', 'order_packed', 'order_canceled', 'product_stock', 'product_low_sotock', 'total_voucher', 'total_user_voucher', 'order_shiped'));
+        return view("dashboard.index", compact('total_order', 'total_users', 'total_revenue', 'total_selled_product', 'product_out_sotock', 'order_packed', 'order_canceled', 'product_stock', 'product_low_sotock', 'total_voucher', 'total_user_voucher', 'order_shiped', 'order_successed'));
     }
 }

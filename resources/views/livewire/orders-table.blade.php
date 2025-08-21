@@ -1,7 +1,7 @@
 <div>
     {{-- Filter Tabs --}}
     <div class="flex flex-wrap gap-2 mb-4">
-        @foreach (['pending', 'confirmed', 'packing', 'shipping', 'success', 'canceled'] as $st)
+        @foreach ([ 'confirmed', 'packing', 'shipping', 'success', 'canceled'] as $st)
             <button 
                 wire:click="setStatus('{{ $st }}')"
                 wire:loading.attr="disabled"
@@ -95,8 +95,62 @@
                             </span>
                         </td>
                         <td class="px-4 py-2">{{ $order->created_at->format('d M Y') }}</td>
-                        <td class="px-4 py-2">
+                        <td class="px-4 py-2 flex gap-2">
                             <a href="/dashboard/orders/{{ $order->id }}/edit">✏️</a>
+                            @if(in_array($order->status, ['success', 'canceled']))
+                            <div x-data="{ showConfirm: false }">
+                                <!-- Delete Button -->
+                                <button 
+                                    @click="showConfirm = true"
+                                    class="text-red-600 hover:text-red-800 transition-colors duration-200 cursor-pointer">
+                                    🗑️
+                                </button>
+                                
+                                <!-- Confirmation Modal -->
+                                <div 
+                                    x-show="showConfirm" 
+                                    class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+                                    @click="showConfirm = false">
+                                    
+                                    <div 
+                                        @click.stop
+                                        class="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-xl">
+                                        
+                                        <div class="flex items-center mb-4">
+                                            <div class="flex-shrink-0">
+                                            </div>
+                                            <div class="ml-4">
+                                                <h3 class="text-lg font-medium text-gray-900">
+                                                    Hapus Order
+                                                </h3>
+                                                <p class="text-sm text-gray-500 mt-1">
+                                                    Yakin mau hapus order ini? Tindakan ini tidak bisa dibatalkan.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-end space-x-3">
+                                            <button 
+                                                @click="showConfirm = false"
+                                                type="button" 
+                                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                Batal
+                                            </button>
+                                            
+                                            <form action="{{ route('orders.destroy', $order->id) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button 
+                                                    type="submit"
+                                                    class="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                                    Ya, Hapus
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         </td>
                     </tr>
                 @empty

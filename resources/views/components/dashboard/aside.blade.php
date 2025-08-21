@@ -22,7 +22,7 @@
             <a href="/dashboard" class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-5 block">Utama</a>
             <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Buat Dan Cari</h3>
             <div class="space-y-1">
-                <a href="#"
+                <a href="/dashboard/products"
                     class="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md hover:bg-yellow-100 hover:text-gray-900 group">
                     <span class="mr-3 text-gray-500 group-hover:text-gray-900">💬</span>
                     Daftar Produk
@@ -30,12 +30,7 @@
                 <a href="#"
                     class="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md hover:bg-yellow-100 hover:text-gray-900 group">
                     <span class="mr-3 text-gray-500 group-hover:text-gray-900">🎵</span>
-                    Daftar Voucher
-                </a>
-                <a href="#"
-                    class="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md hover:bg-yellow-100 hover:text-gray-900 group">
-                    <span class="mr-3 text-gray-500 group-hover:text-gray-900">🖼️</span>
-                    Daftar User
+                    User & Voucher
                 </a>
                 <a href="/dashboard/orders"
                     class="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md hover:bg-yellow-100 hover:text-gray-900 group">

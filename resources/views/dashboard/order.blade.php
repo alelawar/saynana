@@ -12,6 +12,7 @@
                 </p>
             </div>
         </div>
+       
         <div
             class="bg-white rounded-lg border border-slate-200 shadow-lg h-25 flex flex-col justify-center items-center p-2 relative">
             <div class="flex flex-col items-center gap-1">
@@ -20,7 +21,17 @@
                                 }}
                     </p>
                 </div>
-                <p class="text-slate-600 text-xs text-center">Total Semua Pendapatan</p>
+                <p class="text-slate-600 text-xs text-center">Total Semua Pendapatan (Orderan Suksess/Selesai)</p>
+            </div>
+        </div>
+         <div
+            class="bg-white rounded-lg border border-slate-200 shadow-lg h-25 flex flex-col justify-center items-center p-2 relative">
+            <div class="flex flex-col items-center gap-1">
+                <div class="font-semibold text-lg">
+                    <p class="text-red-500 text-xl md:text-2xl">{{$total_canceled ?? 0}}</p>
+                </div>
+                <p class="text-slate-600 text-xs text-center">Total Semua Order Dibatalkan
+                </p>
             </div>
         </div>
     </div>

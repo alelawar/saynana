@@ -31,7 +31,7 @@
                         <p class="text-slate-600 text-xs text-center">Total Semua Order Harus Dikirim (Sudah Dikemas)
                         </p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
+                    <a href="/dashboard/orders?status=packing" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
                 </div>
                 <div
                     class="bg-white rounded-lg border border-slate-200 shadow-lg h-28 flex flex-col justify-between items-center p-2 relative">
@@ -42,17 +42,17 @@
                         <p class="text-slate-600 text-xs text-center">Total Semua Order (Sudah Terkirim)
                         </p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
+                    <a href="/dashboard/orders?status=shipping" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
                 </div>
                 <div
                     class="bg-white rounded-lg border border-slate-200 shadow-lg h-28 flex flex-col justify-between items-center p-2 relative">
                     <div class="flex flex-col items-center gap-1">
                         <div class="font-semibold text-lg">
-                            <p class="text-green-400 md:text-2xl">{{$total_selled_product ?? 0}}</p>
+                            <p class="text-green-400 md:text-2xl">{{$order_successed ?? 0}}</p>
                         </div>
-                        <p class="text-slate-600 text-xs text-center">Total Semua Produk Terjual (Selesai)</p>
+                        <p class="text-slate-600 text-xs text-center">Total Semua Order Selesai</p>
                     </div>
-                    <a href="/dashboard/products" class="text-xs underline hover:text-blue-400">Detail ></a>
+                    <a href="/dashboard/orders?status=success" class="text-xs underline hover:text-blue-400">Detail ></a>
                 </div>
 
                 <div
@@ -66,13 +66,13 @@
                         </div>
                         <p class="text-slate-600 text-xs text-center">Order Dibatalkan</p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
+                    <a href="/dashboard/orders?status=canceled" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
                 </div>
 
             </div>
         </div>
         <div class="mb-8">
-            <h1 class=" md:text-xl font-semibold">Ringkasan Stock dan Voucher</h1>
+            <h1 class=" md:text-xl font-semibold">Ringkasan Stok dan Voucher</h1>
             <p class="text-slate-600  md:mb-3 text-xs ">Data Yang Perlu Diketahui</p>
             <div class="grid md:grid-cols-4 grid-cols-2 p-2 gap-2 text-slate-800">
 
@@ -83,10 +83,21 @@
                         <div class="font-semibold text-lg">
                             <p class="text-blue-400 text-xl md:text-2xl">{{$product_stock ?? 0}}</p>
                         </div>
-                        <p class="text-slate-600 text-xs text-center">Total Semua Stock Produk
+                        <p class="text-slate-600 text-xs text-center">Total Semua Stok Produk
                         </p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
+                    <a href="/dashboard/products" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
+                </div>
+                <div
+                    class="bg-white rounded-lg border border-slate-200 shadow-lg h-28 flex flex-col justify-between items-center p-2 relative">
+                    <div class="flex flex-col items-center gap-1">
+                        <div class="font-semibold text-lg">
+                            <p class="text-green-400 text-xl md:text-2xl">{{$total_selled_product ?? 0}}</p>
+                        </div>
+                        <p class="text-slate-600 text-xs text-center">Total Semua Stok Produk Terjual (Selesai)
+                        </p>
+                    </div>
+                    <a href="/dashboard/products" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
                 </div>
 
                 <div
@@ -100,7 +111,7 @@
                         </div>
                         <p class="text-slate-600 text-xs text-center">Stok Habis</p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
+                    <a href="/dashboard/products" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
                 </div>
 
                 <div
@@ -114,7 +125,7 @@
                         </div>
                         <p class="text-slate-600 text-xs text-center">Stok Rendah</p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
+                    <a href="/dashboard/products" class="text-xs underline hover:text-blue-400">Lanjutkan ></a>
                 </div>
                 <div
                     class="bg-white rounded-lg border border-slate-200 shadow-lg h-28 flex flex-col justify-between items-center p-2 relative">
@@ -124,7 +135,7 @@
                         </div>
                         <p class="text-slate-600 text-xs text-center">Total Voucher</p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Detail ></a>
+                    <a href="/dashboard/products" class="text-xs underline hover:text-blue-400">Detail ></a>
                 </div>
                 <div
                     class="bg-white rounded-lg border border-slate-200 shadow-lg h-28 flex flex-col justify-between items-center p-2 relative">

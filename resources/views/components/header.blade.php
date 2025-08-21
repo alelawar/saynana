@@ -3,6 +3,7 @@
             <div class="flex items-center gap-4">
                 <a href="/shop" class="py-3 px-2.5 bg-slate-200 rounded-lg">Shop</a>
                 <a href="/story">Find Store</a>
+                <a href="/search-order">Cari Pesanan</a>
             </div>
 
             <!-- Logo di tengah absolute -->

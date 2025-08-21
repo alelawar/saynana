@@ -10,7 +10,7 @@ class OrdersTable extends Component
 {
     use WithPagination;
 
-    public $status = 'pending';
+    public $status = 'confirmed';
     public $search = '';
     public $paginationTheme = 'tailwind';
     public $statusCounts = [];
