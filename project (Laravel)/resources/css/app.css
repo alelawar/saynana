@@ -13,3 +13,8 @@
 .card-dashboard {
     @apply bg-white rounded-2xl border border-slate-200 shadow-lg p-6 h-full flex flex-col items-center justify-center gap-2 hover:shadow-xl transition duration-300
 }
+
+button {
+    @apply cursor-pointer disabled:cursor-not-allowed
+    /* @apply disabled:cursor-not-allowed */
+}

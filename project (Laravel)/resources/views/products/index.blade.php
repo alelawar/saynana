@@ -3,4 +3,5 @@
    <x-header/>
    <livewire:products />
    <livewire:cart />
+   <livewire:chatbot/>
 </x-layouts.app>

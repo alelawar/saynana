@@ -15,7 +15,7 @@ class ProfileController extends Controller
             ->with('items.product')
             ->whereNotIn('status', ['pending'])
             ->paginate(10);
-$vouchers = UserVoucher::where('user_id', $user->id)->first() ?? null;
+        $vouchers = UserVoucher::where('user_id', $user->id)->first() ?? null;
 
         // dd($vouchers);
 

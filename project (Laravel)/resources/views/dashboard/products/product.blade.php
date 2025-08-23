@@ -68,7 +68,7 @@
     </div>
     <div class="mb-4 text-right">
         <a href="{{ route('products.create') }}" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
-            ✏️ Create
+            <i class="bi bi-pencil-fill"></i> Create
         </a>
     </div>
     <livewire:product-table />

@@ -96,14 +96,14 @@
                         </td>
                         <td class="px-4 py-2">{{ $order->created_at->format('d M Y') }}</td>
                         <td class="px-4 py-2 flex gap-2">
-                            <a href="/dashboard/orders/{{ $order->id }}/edit">✏️</a>
+                            <a href="/dashboard/orders/{{ $order->id }}/edit"><i class="bi bi-pencil-fill text-blue-600"></i> Edit</a>
                             @if(in_array($order->status, ['success', 'canceled']))
                             <div x-data="{ showConfirm: false }">
                                 <!-- Delete Button -->
                                 <button 
                                     @click="showConfirm = true"
                                     class="text-red-600 hover:text-red-800 transition-colors duration-200 cursor-pointer">
-                                    🗑️
+                                   | <i class="bi bi-trash3"></i>
                                 </button>
                                 
                                 <!-- Confirmation Modal -->
@@ -170,6 +170,6 @@
 
     {{-- Pagination --}}
     <div class="mt-4">
-        {{ $orders->links() }}
+        {{ $orders->links('vendor.pagination.tailwind') }}
     </div>
 </div>

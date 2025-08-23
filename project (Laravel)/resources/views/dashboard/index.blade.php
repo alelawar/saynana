@@ -135,7 +135,7 @@
                         </div>
                         <p class="text-slate-600 text-xs text-center">Total Voucher</p>
                     </div>
-                    <a href="/dashboard/products" class="text-xs underline hover:text-blue-400">Detail ></a>
+                    <a href="/dashboard/users" class="text-xs underline hover:text-blue-400">Detail ></a>
                 </div>
                 <div
                     class="bg-white rounded-lg border border-slate-200 shadow-lg h-28 flex flex-col justify-between items-center p-2 relative">
@@ -145,7 +145,7 @@
                         </div>
                         <p class="text-slate-600 text-xs text-center">Total Voucher Khusus User</p>
                     </div>
-                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Detail ></a>
+                    <a href="/dashboard/users" class="text-xs underline hover:text-blue-400">Detail ></a>
                 </div>
 
 
@@ -178,7 +178,7 @@
                         </div>
                         <p class="text-slate-600 text-xs text-center">Total Semua Pendapatan</p>
                     </div>
-                    <a href="/dashboard/revenue" class="text-xs underline hover:text-blue-400">Detail ></a>
+                    <a href="/dashboard/orders" class="text-xs underline hover:text-blue-400">Detail ></a>
                 </div>
 
 
