@@ -1,7 +1,7 @@
 <x-layouts.app>
     <x-header />
 
-    <div class="max-w-4xl mx-auto p-6">
+    <div class="max-w-4xl mx-auto p-6 mt-30">
         <h1 class="text-2xl font-bold mb-4">Detail Order</h1>
 
         {{-- Order Info --}}

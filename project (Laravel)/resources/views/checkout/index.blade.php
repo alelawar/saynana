@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-header />
-    <div class="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
+    <div class="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 mt-30">
         <h1 class="text-2xl font-bold mb-4">Checkout Berhasil 🎉</h1>
 
         <div class="mb-4">
@@ -20,8 +20,6 @@
 
         @if($discountAmount)
             <p>Discount: Rp.{{ $discountAmount }} !</p>
-            @else
-            <p>gada</p>
         @endif
 
         <table class="w-full border-collapse border border-gray-200 mb-4">
@@ -62,7 +60,7 @@
             </tbody>
         </table>
 
-        <form action="/payment" method="post">
+        <form action="/payment" method="post" id="checkout-form">
             @csrf
             {{-- <p>{{$order->id}}</p> --}}
             <div class="mt-2">
@@ -105,5 +103,27 @@
                 <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-blue-700">Beli</button>
             </div>
         </form>
+
+        <div id="loading-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
+            <svg class="animate-spin h-10 w-10 text-orange-600 mb-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10"
+                    stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <p class="text-gray-700 font-medium">Memproses pesanan...</p>
+        </div>
     </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('checkout-form');
+        const loadingModal = document.getElementById('loading-modal');
+
+        form.addEventListener('submit', function () {
+            loadingModal.classList.remove('hidden');
+        });
+    </script>
 </x-layouts.app>

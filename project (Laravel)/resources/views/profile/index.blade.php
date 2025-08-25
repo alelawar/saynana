@@ -1,7 +1,7 @@
 <x-layouts.app>
     <x-header />
 
-    <div class="max-w-6xl mx-auto p-6">
+    <div class="max-w-6xl mx-auto p-6 mt-30">
         {{-- Profile User --}}
         <div class="bg-white rounded-lg shadow p-6 mb-8">
             <h2 class="text-2xl font-bold mb-4">Profil Saya</h2>

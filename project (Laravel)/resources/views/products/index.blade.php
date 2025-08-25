@@ -1,7 +1,7 @@
 <x-layouts.app title="Product Page">
    {{-- <livewire:nav-header /> --}}
    <x-header/>
+   <x-home.hero/>
    <livewire:products />
-   <livewire:cart />
    <livewire:chatbot/>
 </x-layouts.app>

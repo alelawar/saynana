@@ -1,4 +1,5 @@
 <div>
+    
     <script type="module">
         import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
         Chatbot.init({
@@ -20,44 +21,34 @@
                     iconColor: 'white',
                     customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
                     autoWindowOpen: {
-                        autoOpen: true,
+                        autoOpen: false,
                         openDelay: 2,
                         autoOpenOnMobile: false
                     }
                 },
-                tooltip: {
-                    showTooltip: true,
-                    tooltipMessage: 'Hi There 👋!',
-                    tooltipBackgroundColor: 'black',
-                    tooltipTextColor: 'white',
-                    tooltipFontSize: 16
-                },
-                disclaimer: {
-                    title: 'Disclaimer',
-                    message: "By using this chatbot, you agree to the <a target=\"_blank\" href=\"https://flowiseai.com/terms\">Terms & Condition</a>",
-                    textColor: 'black',
-                    buttonColor: '#3b82f6',
-                    buttonText: 'Start Chatting',
-                    buttonTextColor: 'white',
-                    blurredBackgroundColor: 'rgba(0, 0, 0, 0.4)',
-                    backgroundColor: 'white'
-                },
+                // tooltip: {
+                //     showTooltip: true,
+                //     tooltipMessage: 'Hi There 👋!',
+                //     tooltipBackgroundColor: 'black',
+                //     tooltipTextColor: 'white',
+                //     tooltipFontSize: 16
+                // },
                 customCSS: ``,
                 chatWindow: {
                     showTitle: true,
                     showAgentMessages: true,
-                    title: 'Flowise Bot',
+                    title: 'Say-BOT',
                     titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-                    welcomeMessage: 'Hello! This is custom welcome message',
-                    errorMessage: 'This is a custom error message',
+                    welcomeMessage: 'Hallo! Ada yang bisa saya bantu?',
+                    errorMessage: 'Waduh! ada yang salah sama api kamu nih :(',
                     backgroundColor: '#ffffff',
                     backgroundImage: 'enter image path or link',
                     height: 600,
                     width: 400,
                     fontSize: 16,
                     starterPrompts: [
-                        "What is a bot?",
-                        "Who are you?"
+                        "Kamu bisa ngapain?",
+                        "Cara pesan?"
                     ],
                     starterPromptFontSize: 15,
                     clearChatOnReload: false,
@@ -76,12 +67,12 @@
                         avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png'
                     },
                     textInput: {
-                        placeholder: 'Type your question',
+                        placeholder: 'Coba Tanyain Sesuatu',
                         backgroundColor: '#ffffff',
                         textColor: '#303235',
                         sendButtonColor: '#3B81F6',
                         maxChars: 50,
-                        maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
+                        maxCharsWarningMessage: 'Kamu masukin pertanyaan yang terlalu panjang. Masimal 50 Karakter.',
                         autoFocus: true,
                         sendMessageSound: true,
                         sendSoundLocation: 'send_message.mp3',
@@ -97,7 +88,7 @@
                     },
                     footer: {
                         textColor: '#303235',
-                        text: 'Powered by',
+                        text: 'SayBOT',
                         company: 'Flowise',
                         companyLink: 'https://flowiseai.com'
                     }

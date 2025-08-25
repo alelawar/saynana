@@ -1,24 +1,25 @@
 <x-layouts.app>
     <x-header />
-    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 mt-30">
         <form action="" method="GET" class="space-y-4">
             <!-- Search Input - Full width pada mobile -->
             <div class="w-full">
-                <input type="text" name="q" value="{{ request('q') }}" 
+                <input type="text" name="q" value="{{ request('q') }}"
                     placeholder="Cari berdarkan nama pembeli / Code Order"
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
-            
+
             <!-- Filter dan Button - Responsive layout -->
             <div class="flex flex-col sm:flex-row gap-2">
-                <select name="status" class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select name="status"
+                    class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="">Semua Status</option>
                     <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
                     <option value="confirmed" {{ request('status') == 'confirmed' ? 'selected' : '' }}>Confirmed</option>
                     <option value="success" {{ request('status') == 'success' ? 'selected' : '' }}>Success</option>
                     <option value="canceled" {{ request('status') == 'canceled' ? 'selected' : '' }}>Canceled</option>
                 </select>
-                
+
                 <div class="flex gap-2">
                     <button type="submit"
                         class="flex-1 sm:flex-none px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors whitespace-nowrap">
@@ -38,7 +39,7 @@
         @if(request('q') || request('status'))
             <div class="mt-4 p-3 bg-blue-50 rounded-lg">
                 <p class="text-sm text-blue-700">
-                    Filter aktif: 
+                    Filter aktif:
                     @if(request('q'))
                         <span class="font-medium">Pencarian: "{{ request('q') }}"</span>
                     @endif
@@ -69,11 +70,11 @@
                             </div>
                             <div class="flex-shrink-0">
                                 <span class="inline-block px-3 py-1 text-sm rounded-full 
-                                        @if($order->status == 'pending') bg-yellow-100 text-yellow-800 
-                                        @elseif($order->status == 'confirmed') bg-blue-100 text-blue-800 
-                                        @elseif($order->status == 'success') bg-green-100 text-green-800 
-                                        @elseif($order->status == 'canceled') bg-red-100 text-red-800 
-                                        @else bg-gray-100 text-gray-800 @endif">
+                                                @if($order->status == 'pending') bg-yellow-100 text-yellow-800 
+                                                @elseif($order->status == 'confirmed') bg-blue-100 text-blue-800 
+                                                @elseif($order->status == 'success') bg-green-100 text-green-800 
+                                                @elseif($order->status == 'canceled') bg-red-100 text-red-800 
+                                                @else bg-gray-100 text-gray-800 @endif">
                                     {{ ucfirst($order->status) }}
                                 </span>
                             </div>
@@ -88,13 +89,16 @@
                 </div>
             @endif
         @else
-            <p class="text-center text-gray-500 mt-8">
-                @if(request('q') || request('status'))
-                    Tidak ada order yang sesuai dengan filter 😅
-                @else
-                    Tetot, nggak ada hasil 😅
-                @endif
-            </p>
+            <div class="text-center mt-10">
+                <p class="text-blue-500 md:text-lg">
+                    @if(request('q') || request('status'))
+                        Tidak ada order yang sesuai dengan filter
+                    @else
+                        Coba Cari Dengan Keyword Yang Lebih Jelas
+                    @endif
+                </p>
+            </div>
+
         @endif
     </div>
 </x-layouts.app>

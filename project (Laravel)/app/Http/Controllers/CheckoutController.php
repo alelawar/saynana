@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PaymentSuccessMail;
 use App\Models\City;
 use App\Models\User;
 use App\Models\Order;
@@ -13,6 +14,7 @@ use App\Models\OrdersItem;
 use App\Models\UserVoucher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CheckoutController extends Controller
@@ -191,11 +193,13 @@ class CheckoutController extends Controller
             ]);
         }
 
+        Mail::to($dataOrder->email)->send(new PaymentSuccessMail($order, $dataOrder));
+
         // Hapus voucher_code dari session
         session()->forget('voucher_code');
         // return redirect()->route('home')->with('success', 'Pembelian berhasil!');
         return redirect()->route('getDetailCheckout', ['code' => $order->code])
-            ->with('success', 'Pembelian berhasil!');
+            ->with('success', 'Pembelian berhasil! Email konfirmasi sudah dikirim.');
     }
 
     public function detailOrder($code)
