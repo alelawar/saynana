@@ -1,37 +1,53 @@
 <x-layouts.app>
-    <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-sm w-full space-y-8">
+    <div class="min-h-screen relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-sm w-full space-y-8 relative z-10">
+            <x-auth.heading heading1="Log" heading2="in" href="register" action1="belum punya akun?" action2="bergabung sekarang!" />
 
-            <x-auth.heading heading="Sign in to your account" href="register" action="create a new account" />
-
-            <form class="mt-8 space-y-6" method="POST" action="#">
+            <form class="mt-8 space-y-8" method="POST" action="#">
                 @csrf
-                <div class="rounded-md shadow-sm -space-y-px">
-                    <x-auth.input name="email" label="Email address" type="email" placeholder="Email address" />
-                    <x-auth.input name="password" label="Password" type="password" placeholder="pw" />
+                <div class="space-y-4">
+                    <x-auth.input name="email" label="Email address" type="email" placeholder="email" />
+                    <x-auth.input name="password" label="Password" type="password" placeholder="password" />
                 </div>
 
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
                         <input id="remember-me" name="remember-me" type="checkbox"
-                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            class="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded">
                         <label for="remember-me" class="ml-2 block text-sm text-gray-900">
-                            Remember me
+                            Ingat saya!
                         </label>
                     </div>
 
                     <div class="text-sm">
-                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                            Forgot your password?
+                        <a href="#" class="font-medium border-b-1 hover:text-yellow-400">
+                            lupa kata sandi?
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <x-auth.button name="Sign in" />
+                    <x-auth.button name="masuk" />
                 </div>
             </form>
         </div>
+
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 pointer-events-none hidden md:block top-20">
+                <!-- ITEM DI KANAN (TEKS) - berada di belakang atau depan sesuai z -->
+                <img src="{{ asset('img/items/banana.png') }}" alt="" class="absolute float w-[12%] bottom-10 left-0 rotate-25 z-0" />
+                <img src="{{ asset('img/items/strawberry.png') }}" alt="" class="absolute float w-[15%] left-1/6 blur-[3px] -rotate-25 top-1/3 z-0" />
+
+                <!-- ITEM KIRI (IMAGE) -->
+                <img src="{{ asset('img/items/banana-double.png') }}" alt="" class="absolute float w-[15%] left-10 blur-[1px] top-10 rotate-25 z-20" />
+                <img src="img/mini-cocholate-bar.png" alt="" class="absolute float w-[30%] top-0 left-[55%] z-0" />
+                <img src="{{ asset('img/items/cocholate-bar.png') }}" alt="" class="absolute float w-[20%] bottom-10 blur-[1px] right-1/6 rotate-90 z-20" />
+                <img src="{{ asset('img/items/mini-cocholate-bar.png') }}" alt=""
+                    class="absolute float w-[8%] blur-[3px] top-12 right-1/5 rotate-35 z-20" />
+                <img src="{{ asset('img/items/choped-strawberry.png') }}" alt=""
+                    class="absolute float w-[25%] top-1/4 -right-10 rotate-35 z-20" />
+            </div>
+        </div>
     </div>
-  
+
 </x-layouts.app>

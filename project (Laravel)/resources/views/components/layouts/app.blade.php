@@ -17,15 +17,15 @@
     @livewireStyles
 </head>
 
-<body class="overflow-x-hidden">
-    <main class="">
+<body>
+    <main class="text-[#3A1E13] overflow-x-hidden">
         {{ $slot }}
     </main>
     @if (session('success'))
-        <x-notification color="bg-green-700">{{ session('success') }}</x-notification>
+    <x-notification color="bg-green-700">{{ session('success') }}</x-notification>
     @endif
     @if (session('error'))
-        <x-notification color="bg-red-700">{{ session('error') }}</x-notification>
+    <x-notification color="bg-red-700">{{ session('error') }}</x-notification>
     @endif
     @livewireScripts
 </body>
