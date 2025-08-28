@@ -193,7 +193,9 @@ class CheckoutController extends Controller
             ]);
         }
 
-        Mail::to($dataOrder->email)->send(new PaymentSuccessMail($order, $dataOrder));
+        if (!empty(config('mail.mailers.smtp.password'))) {
+            Mail::to($dataOrder->email)->send(new PaymentSuccessMail($order, $dataOrder));
+        }
 
         // Hapus voucher_code dari session
         session()->forget('voucher_code');

@@ -55,3 +55,64 @@ button {
     @apply cursor-pointer disabled:cursor-not-allowed
     /* @apply disabled:cursor-not-allowed */
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 12px; /* Tinggi scrollbar horizontal */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+    margin: 0 20px; /* Margin kiri kanan biar gak mentok */
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #fbbf24, #f59e0b);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+    transform: scale(1.1); /* Efek hover sedikit membesar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(45deg, #d97706, #92400e);
+}
+
+
+/* Styling untuk Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #fbbf24 #f1f5f9;
+}
+
+/* Hover effect untuk container */
+.scroll-container:hover .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+}
+
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Dot indicator styles */
+.dot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.dot-active {
+  background-color: #3A1E13;
+  transform: scale(1.5);
+}
+
+.dot-inactive {
+  background-color: #57352C;
+}

@@ -27,11 +27,11 @@
             <div class="flex flex-col lg:flex-row gap-10 md:h-auto items-center">
                 {{-- Gambar Produk --}}
                 @if ($product->img_url)
-                    <div class="w-50 h-full text-center ">
+                    <div class="w-50 h-full text-center shadow-6xl">
                         @if(Str::startsWith($product->img_url, 'db/'))
                             <img src="{{ asset('storage/' . $product->img_url) }}" alt="">
                         @else
-                            <img src="{{ asset($product->img_url) }}" alt="">
+                            <img src="{{ asset($product->img_url) ?? '' }}" alt="">
                         @endif
 
                         <input type="file" name="img_url" id="fileInput" class="hidden" accept="image/*">

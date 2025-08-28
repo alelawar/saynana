@@ -17,11 +17,11 @@ class ProductSeeder extends Seeder
         $products = [
             ['name' => 'Sale Pisang Original', 'description' => 'Sale Wenak', 'price' => 13000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-original.png'],
 
-            ['name' => 'Sale Pisang Chocolate', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-chocolate.png'],
+            ['name' => 'Sale Pisang Chocolate', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-chocolate.png', 'bg_color' => '#9D734B'],
 
-            ['name' => 'Sale Pisang Strawberry', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-strawberry.png'],
+            ['name' => 'Sale Pisang Strawberry', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-strawberry.png', 'bg_color' => '#FF4352'],
 
-            ['name' => 'Sale Pisang Milk', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-milk.png'],
+            ['name' => 'Sale Pisang Milk', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-milk.png', 'bg_color' => '#34A6D8'],
 
         ];
 

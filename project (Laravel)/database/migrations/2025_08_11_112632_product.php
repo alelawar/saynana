@@ -17,7 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->bigInteger('price')->unsigned();
             $table->bigInteger('stock')->unsigned()->default(10);
-            $table->string('img_url')->nullable();
+            $table->string('img_url');
+            $table->string('bg_color')->default('#F6CB0C');
             $table->timestamps();
         });
     }   
