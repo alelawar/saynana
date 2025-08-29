@@ -1,4 +1,4 @@
-<section class="px-6 lg:px-10 max-w-7xl mx-auto">
+<section class="px-6 lg:px-10 max-w-7xl mx-auto" >
     <div class="">
         <div class="flex flex-col-reverse justify-between lg:flex-row gap-8 md:gap-12 items-center">
             <!-- Left Content -->
@@ -28,10 +28,10 @@
 
                 <!-- CTA Button -->
                 <div class="pt-2 md:pt-4 flex justify-center md:justify-start">
-                    <button
+                    <a href="#product"
                         class="bg-[#57352C] hover:bg-amber-900 text-white font-semibold px-6 md:px-8 py-2 md:py-3 rounded-lg transition-colors duration-300">
                         Dapatkan sekarang!
-                    </button>
+                    </a >
                 </div>
             </div>
 

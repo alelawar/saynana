@@ -15,11 +15,11 @@ class Products extends Component
         $this->cartItems = session()->get('cart', []);
     }
 
-    public function addToCart($productId) 
+    public function addToCart($productId)
     {
         $cart = session()->get('cart', []);
 
-        if(isset($cart[$productId])) {
+        if (isset($cart[$productId])) {
             $cart[$productId]['qty']++;
         } else {
             $product = Product::findOrFail($productId);
@@ -37,7 +37,15 @@ class Products extends Component
         $this->dispatch('cartUpdated');
         $this->dispatch('updateTotalQty');
     }
-    
+
+    public function getAvailableStocks($productId, $realStock)
+    {
+        $cart = session()->get('cart', []);
+        $reserved = isset($cart[$productId]) ? $cart[$productId]['qty'] : 0;
+
+        return max($realStock - $reserved, 0);
+    }
+
     public function render()
     {
         $products = Product::orderBy('name')->get();

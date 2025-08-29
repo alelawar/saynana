@@ -1,6 +1,6 @@
-<section>
+<section id="review">
     <!-- Curve atas -->
-    <img src="../img/star-badge.png" alt="badge"
+    <img src="{{asset('img/star-badge.png')}}" alt="badge"
         class="h-28 md:h-40 w-auto relative top-0 left-12 translate-y-16 md:translate-y-24" />
     <div class="relative inset-0 -z-10 -mb-24 ml-[-50%] h-[200px] w-[200%] rounded-t-[100%] bg-yellow-200"></div>
 
@@ -35,33 +35,27 @@
                         <div
                             class="relative w-75 h-[35rem] bg-cover bg-center rounded-2xl overflow-hidden flex-shrink-0">
                             <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500">
-                                <img src="../img/review-1.png" alt="bg-review" class="w-full h-full object-cover" />
+                                <video autoplay loop muted playsinline alt="bg-review" class="w-full h-full object-cover" >
+                                    <source src="{{ asset('video/review-1.mp4') }}">
+                                </video>
                             </div>
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-[#3A1E13]/80 via-[#3A1E13]/40 to-transparent">
                             </div>
                             <div class="relative z-10 h-full flex flex-col justify-end p-6 text-white">
                                 <div class="flex flex-col justify-center items-center text-center">
-                                    <div class="mb-6">
-                                        <p class="text-sm leading-relaxed font-medium">
-                                            Rasanya enak dan renyah banget, manisnya pas dan
-                                            nggak bikin eneg. Packagingnya juga keren. Minus
-                                            sedikit di jumlah isinya yang pengen lebih banyak,
-                                            soalnya cepat habis 😊
-                                        </p>
-                                    </div>
                                     <div class="flex items-center mb-4 space-x-1">
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star-half-alt text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill-half-alt text-yellow-400 text-sm"></i>
                                     </div>
                                     <div class="flex items-center space-x-3">
                                         <div class="w-8 h-8 bg-gray-300 rounded-full overflow-hidden">
                                             <div
                                                 class="w-full h-full bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center">
-                                                <i class="fas fa-user text-white text-sm"></i>
+                                                <i class="bi bi-person text-white text-sm"></i>
                                             </div>
                                         </div>
                                         <div>
@@ -79,36 +73,31 @@
                         <div
                             class="relative w-75 h-[35rem] bg-cover bg-center rounded-2xl overflow-hidden flex-shrink-0">
                             <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500">
-                                <img src="../img/review-2.png" alt="bg-review" class="w-full h-full object-cover" />
+                                <video autoplay loop muted playsinline alt="bg-review" class="w-full h-full object-cover" >
+                                    <source src="{{ asset('video/review-2.mp4') }}">
+                                </video>
                             </div>
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-[#3A1E13]/80 via-[#3A1E13]/40 to-transparent">
                             </div>
                             <div class="relative z-10 h-full flex flex-col justify-end p-6 text-white">
                                 <div class="flex flex-col justify-center items-center text-center">
-                                    <div class="mb-6">
-                                        <p class="text-sm leading-relaxed font-medium">
-                                            Produk berkualitas tinggi dengan rasa yang autentik.
-                                            Pengiriman cepat dan packaging rapi. Sangat
-                                            merekomendasikan untuk camilan sehat keluarga! 👍
-                                        </p>
-                                    </div>
                                     <div class="flex items-center mb-4 space-x-1">
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
                                     </div>
                                     <div class="flex items-center space-x-3">
                                         <div class="w-8 h-8 bg-gray-300 rounded-full overflow-hidden">
                                             <div
                                                 class="w-full h-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center">
-                                                <i class="fas fa-user text-white text-sm"></i>
+                                                <i class="bi bi-person text-white text-sm"></i>
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 class="font-semibold text-sm">Ahmad R.S</h4>
+                                            <h4 class="font-semibold text-sm">Rini R.S</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -122,32 +111,28 @@
                         <div
                             class="relative w-75 h-[35rem] bg-cover bg-center rounded-2xl overflow-hidden flex-shrink-0">
                             <div class="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-500">
-                                <img src="../img/review-3.png" alt="bg-review" class="w-full h-full object-cover" />
+                                <video autoplay loop muted playsinline alt="bg-review" class="w-full h-full object-cover" >
+                                    <source src="{{ asset('video/review-3.mp4') }}">
+                                </video>
                             </div>
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-[#3A1E13]/80 via-[#3A1E13]/40 to-transparent">
                             </div>
                             <div class="relative z-10 h-full flex flex-col justify-end p-6 text-white">
                                 <div class="flex flex-col justify-center items-center text-center">
-                                    <div class="mb-6">
-                                        <p class="text-sm leading-relaxed font-medium">
-                                            Anak-anak suka banget! Rasa pisangnya natural dan
-                                            tidak terlalu manis. Kemasan praktis untuk
-                                            dibawa-bawa. Pasti beli lagi! 🍌
-                                        </p>
-                                    </div>
+
                                     <div class="flex items-center mb-4 space-x-1">
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
-                                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
+                                        <i class="bi bi-star-fill text-yellow-400 text-sm"></i>
                                     </div>
                                     <div class="flex items-center space-x-3">
                                         <div class="w-8 h-8 bg-gray-300 rounded-full overflow-hidden">
                                             <div
                                                 class="w-full h-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center">
-                                                <i class="fas fa-user text-white text-sm"></i>
+                                                <i class="bi bi-person text-white text-sm"></i>
                                             </div>
                                         </div>
                                         <div>

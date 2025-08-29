@@ -40,7 +40,7 @@
                     <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Harga Produk</label>
                     <div class="relative">
                         <span class="absolute left-3 top-2 text-gray-500 text-xs sm:text-sm">Rp</span>
-                        <input type="number"  name="price"
+                        <input type="number" name="price"
                             class="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md  text-gray-800 font-semibold text-xs sm:text-sm">
                     </div>
                 </div>
@@ -49,6 +49,10 @@
             <div class="mt-6">
                 <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Upload Foto Produk</label>
                 <input type="file" name="image">
+            </div>
+            <div class="sm:col-span-2 lg:col-span-1 pt-5 border-t">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Background Produk</label>
+                <input type="color" class="cursor-pointer" value="#F6CB0C" name="bg_color" class="">
             </div>
             <div class="mt-6">
                 <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Deskripsi Produk</label>
@@ -59,13 +63,9 @@
 
             <!-- Tombol di bawah -->
             <div class="mt-6 flex justify-end gap-3">
-                <button type="button"
-                    class="px-4 py-2 cursor-pointer bg-gray-200 text-gray-700 text-sm rounded-lg hover:bg-gray-300 transition">
-                    Batal
-                </button>
                 <button type="submit"
                     class="px-4 py-2 cursor-pointer bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
-                    Simpan Perubahan
+                    Buat
                 </button>
             </div>
         </div>

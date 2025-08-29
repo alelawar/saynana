@@ -1,14 +1,14 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
 
-    <section class="">
+    <section class="" id="product">
         <!-- Curve atas -->
         <div class="relative bottom-6 ml-[-50%] h-[200px] w-[200%] rounded-t-[100%] bg-gradient-to-b bg-white"></div>
 
         <!-- Isi konten -->
         <div class="relative -top-24 z-10 mx-auto overflow-hidden">
             <div class="text-center mb-12">
-                <span class="px-4 py-2 bg-[#57352C] text-white rounded-full text-lg">produk kita</span>
+                <span class="px-4 py-2 bg-[#57352C] text-white rounded-full text-lg  mt-5">produk kita</span>
                 <h2 class="mt-4 text-3xl md:text-5xl sour-gummy text-[#3A1E13]">
                     Rasakan Keriuknya, Nikmati Manisnya!
                 </h2>
@@ -19,7 +19,8 @@
                 <div class="grid grid-cols-4 gap-6 min-w-[1000px] pb-10">
                     @forelse ($products as $product)
                         <div tabindex="0"
-                            class=" flex flex-col items-center p-6 rounded-2xl text-center shadow-lg relative group overflow-hidden transition-all duration-300 focus:outline-none snap-center focus:shadow-3xl text-white shadow-amber-200" style="background-color: {{ $product->bg_color }}">
+                            class=" flex flex-col items-center p-6 rounded-2xl text-center shadow-lg relative group overflow-hidden transition-all duration-300 focus:outline-none snap-center focus:shadow-3xl text-white shadow-amber-200"
+                            style="background-color: {{ $product->bg_color }}">
                             <!-- Bintang -->
                             <div
                                 class="text-sm transition-transform duration-300 group-hover:-translate-y-12 group-focus-within:-translate-y-12 text-white">
@@ -60,15 +61,17 @@
 
                             <!-- Tombol -->
                             <div
-                                class="absolute bottom-4 flex gap-8 translate-y-16 transition-transform duration-300 z-30 group-hover:translate-y-0 group-focus-within:translate-y-0">
-
+                                class="absolute bottom-4 flex items-center gap-8 translate-y-16 transition-transform duration-300 z-30 group-hover:translate-y-0 group-focus-within:translate-y-0">
+                                <p class="px-2 py-1.5 rounded-full border border-white">
+                                    {{ $this->getAvailableStocks($product->id, $product->stock) }}
+                                </p>
                                 <button wire:click="addToCart({{ $product->id }})" wire:loading.attr="disabled"
                                     class="bg-white text-[#3A1E13] px-4 py-2 rounded-full shadow font-semibold hover:bg-yellow-100 transition disabled:bg-slate-500">
                                     + <i class="bi bi-cart3"></i>
                                     <span class="" wire:loading.remove wire:target="addToCart({{ $product->id }})">
                                         Rp.{{ number_format($product->price, 0, ',', '.') }}
                                     </span>
-                                    <span wire:loading wire:target="addToCart({{ $product->id }})">Menambahkan..</span>
+                                    <span wire:loading wire:target="addToCart({{ $product->id }})">Adding..</span>
                                 </button>
                             </div>
                         </div>

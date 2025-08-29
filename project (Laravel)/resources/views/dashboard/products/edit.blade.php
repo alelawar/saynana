@@ -24,10 +24,11 @@
             </h2>
 
 
-            <div class="flex flex-col lg:flex-row gap-10 md:h-auto items-center">
+            <div class="flex flex-col lg:flex-row gap-10 md:h-auto items-center ">
                 {{-- Gambar Produk --}}
-                @if ($product->img_url)
-                    <div class="w-50 h-full text-center shadow-6xl">
+                <div class="w-50 h-full text-center shadow-6xl text-white rounded-xl "
+                    style="background-color: {{ $product->bg_color }}" id="productImage">
+                    @if ($product->img_url)
                         @if(Str::startsWith($product->img_url, 'db/'))
                             <img src="{{ asset('storage/' . $product->img_url) }}" alt="">
                         @else
@@ -36,11 +37,11 @@
 
                         <input type="file" name="img_url" id="fileInput" class="hidden" accept="image/*">
 
-                        <h2 class="text-base font-semibold text-gray-800 mb-1">Edit Foto</h2>
-                        <p class="text-slate-600 text-sm">(optional)</p>
+                        <h2 class="text-base font-semibold text-gray-100 mb-1">Edit Foto</h2>
+                        <p class="text-slate-50 text-sm">(optional)</p>
                         <p id="fileName" class="text-sm text-green-800 mt-1 italic"></p>
-                    </div>
-                @endif
+                    @endif
+                </div>
 
                 {{-- Form Produk --}}
                 <div class="flex-1 w-full">
@@ -54,9 +55,14 @@
 
                         {{-- Stock Produk --}}
                         <div class="sm:col-span-2 lg:col-span-1">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Stock Produk</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Stok</label>
                             <input type="number" value="{{ $product->stock }}" name="stock"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="sm:col-span-2 lg:col-span-1">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Background Produk</label>
+                            <input type="color" class="cursor-pointer" value="{{ $product->bg_color }}" name="bg_color"
+                                class="">
                         </div>
 
                         {{-- Harga Produk --}}
@@ -80,10 +86,7 @@
 
                     <!-- Tombol di bawah -->
                     <div class="mt-6 flex justify-end gap-3">
-                        <button type="button"
-                            class="px-4 py-2 cursor-pointer bg-gray-200 text-gray-700 text-sm rounded-lg hover:bg-gray-300 transition">
-                            Batal
-                        </button>
+
                         <button type="submit"
                             class="px-4 py-2 cursor-pointer bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
                             Simpan Perubahan

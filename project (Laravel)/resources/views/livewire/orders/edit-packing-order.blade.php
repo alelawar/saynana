@@ -218,10 +218,7 @@
 
         {{-- ACTION BUTTONS --}}
         <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-6">
-            <button type="button"
-                class="w-full sm:w-auto px-4 sm:px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors text-sm sm:text-base">
-                Batal
-            </button>
+
             <button type="submit" wire:loading.attr="disabled"
                 class="w-full sm:w-auto px-4 sm:px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors text-sm sm:text-base disabled:bg-slate-900">
                 <span wire:loading.remove>Update Pesanan</span>

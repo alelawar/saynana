@@ -20,7 +20,6 @@ class Cart extends Component
         $this->cart = session()->get('cart', []);
     }
 
-    // ✅ Method untuk mendapatkan total quantity
     public function getTotalQuantity()
     {
         return array_sum(array_column($this->cart, 'qty'));

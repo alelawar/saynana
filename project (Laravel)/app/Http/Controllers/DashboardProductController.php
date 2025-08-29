@@ -72,12 +72,13 @@ class DashboardProductController extends Controller
             'name' => 'required|string|max:225',
             'stock' => 'required|integer',
             'price' => 'required',
+            'bg_color' => 'required',
             'description' => 'required',
             'image' => 'file|image|max:5024'
         ]);
 
         if ($request->hasFile('image')) {
-            $data['img_url'] = $request->file('image')->store('db/img');
+            $data['img_url'] = $request->file('image')->store('/db/img');
             unset($data['image']);
         }
 
@@ -115,6 +116,7 @@ class DashboardProductController extends Controller
             'stock' => 'required|integer',
             'price' => 'required',
             'description' => 'required',
+            'bg_color' => 'required',
             'img_url' => 'nullable|image|max:5024'
         ]);
 
@@ -128,7 +130,7 @@ class DashboardProductController extends Controller
             }
 
             // simpan file baru ke storage/app/public/image
-            $data['img_url'] = $request->file('img_url')->store('db/img');
+            $data['img_url'] = $request->file('img_url')->store('/db/img');
         }
 
         $product->update($data);

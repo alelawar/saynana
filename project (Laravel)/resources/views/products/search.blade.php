@@ -1,7 +1,7 @@
 <x-layouts.app>
     <x-header />
 
-    <div class="w-full mx-auto px-4 sm:px-6 lg:px-16 mt-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 mt-30">
         <!-- Header Section -->
         <div class="bg-white rounded-2xl shadow-lg border border-yellow-100 overflow-hidden mb-8">
             <div class="bg-gradient-to-r from-yellow-400 to-yellow-300 p-6">
