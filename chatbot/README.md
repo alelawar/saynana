@@ -1,116 +1,69 @@
-<!-- markdownlint-disable MD030 -->
+# 🌟 Saynana Project
 
-<p align="center">
-<img src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise_white.svg#gh-light-mode-only">
-<img src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise_dark.svg#gh-dark-mode-only">
-</p>
+## 📖 Overview
 
-<div align="center">
+Project ini terdiri dari dua aplikasi berbeda:
 
-[![Release Notes](https://img.shields.io/github/release/FlowiseAI/Flowise)](https://github.com/FlowiseAI/Flowise/releases)
-[![Discord](https://img.shields.io/discord/1087698854775881778?label=Discord&logo=discord)](https://discord.gg/jbaHfsRVBW)
-[![Twitter Follow](https://img.shields.io/twitter/follow/FlowiseAI?style=social)](https://twitter.com/FlowiseAI)
-[![GitHub star chart](https://img.shields.io/github/stars/FlowiseAI/Flowise?style=social)](https://star-history.com/#FlowiseAI/Flowise)
-[![GitHub fork](https://img.shields.io/github/forks/FlowiseAI/Flowise?style=social)](https://github.com/FlowiseAI/Flowise/fork)
+- **Laravel (utama)** → Backend & Frontend utama
+- **Chatbot (Node.js)** → Layanan chatbot yang terintegrasi
 
-English | [繁體中文](./i18n/README-TW.md) | [简体中文](./i18n/README-ZH.md) | [日本語](./i18n/README-JA.md) | [한국어](./i18n/README-KR.md)
+---
+## 📝 Notes
 
-</div>
+- <b><span style="color:red">Configurasi dan Instalasi Project Chatbot sedikit rumit. Apliakasi utama akan tetap berjalan meskipun tanpa Chatbot aktif</span></b>
 
-<h3>Build AI Agents, Visually</h3>
-<a href="https://github.com/FlowiseAI/Flowise">
-<img width="100%" src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise_agentflow.gif?raw=true"></a>
 
-## 📚 Table of Contents
+---
+## 🔧 Prerequisite (Untuk Chatbot)
 
--   [⚡ Quick Start](#-quick-start)
--   [🐳 Docker](#-docker)
--   [👨‍💻 Developers](#-developers)
--   [🌱 Env Variables](#-env-variables)
--   [📖 Documentation](#-documentation)
--   [🌐 Self Host](#-self-host)
--   [☁️ Flowise Cloud](#️-flowise-cloud)
--   [🙋 Support](#-support)
--   [🙌 Contributing](#-contributing)
--   [📄 License](#-license)
+### PNPM
 
-## ⚡Quick Start
+Install PNPM secara global:
 
-Download and Install [NodeJS](https://nodejs.org/en/download) >= 18.15.0
+```bash
+npm i -g pnpm
+```
 
-1. Install Flowise
-    ```bash
-    npm install -g flowise
-    ```
-2. Start Flowise
+### Node.js Version
 
-    ```bash
-    npx flowise start
-    ```
+**Node.js version 18.15.0 or higher**, up to **20.x**
 
-3. Open [http://localhost:3000](http://localhost:3000)
+⚠️ **Penting:** Tidak support Node.js 21+
 
-## 🐳 Docker
+> 💡 **Tip:** Gunakan NVM untuk mempermudah ganti versi Node.js.  
+> 🔗 **Referensi:** [NVM Releases](https://github.com/coreybutler/nvm-windows/releases)
 
-### Docker Compose
+### Chat Flow Example
 
-1. Clone the Flowise project
-2. Go to `docker` folder at the root of the project
-3. Copy `.env.example` file, paste it into the same location, and rename to `.env` file
-4. `docker compose up -d`
-5. Open [http://localhost:3000](http://localhost:3000)
-6. You can bring the containers down by `docker compose stop`
+Contoh Flowise chatflow ada di folder:  
+📁 [chatbot/assets/chatflow.json](https://github.com/alelawar/saynana/blob/main/chatbot/assets/chatflow.json)
 
-### Docker Image
+### Google Generative AI API
 
-1. Build the image locally:
+Dapatkan API key dari:  
+🔗 [Google AI Studio](https://aistudio.google.com/)
+
+---
+
+## 🚀 Cara Instalasi (Chatbot)
+
+ 1. Clone Repository
 
     ```bash
-    docker build --no-cache -t flowise .
-    ```
-
-2. Run image:
-
-    ```bash
-    docker run -d --name flowise -p 3000:3000 flowise
-    ```
-
-3. Stop image:
-
-    ```bash
-    docker stop flowise
-    ```
-
-## 👨‍💻 Developers
-
-Flowise has 3 different modules in a single mono repository.
-
--   `server`: Node backend to serve API logics
--   `ui`: React frontend
--   `components`: Third-party nodes integrations
--   `api-documentation`: Auto-generated swagger-ui API docs from express
-
-### Prerequisite
-
--   Install [PNPM](https://pnpm.io/installation)
-    ```bash
-    npm i -g pnpm
-    ```
-
-### Setup
-
-1.  Clone the repository:
-
-    ```bash
-    git clone https://github.com/FlowiseAI/Flowise.git
+    git clone https://github.com/alelawar/saynana.git
     ```
 
 2.  Go into repository folder:
 
     ```bash
-    cd Flowise
+    cd saynana/chatbot
     ```
 
+3.  Init Repository For Husky:
+
+    ```bash
+    git init
+    ```
 3.  Install all dependencies of all modules:
 
     ```bash
@@ -152,86 +105,19 @@ Flowise has 3 different modules in a single mono repository.
     pnpm start
     ```
 
-    You can now access the app on [http://localhost:3000](http://localhost:3000)
+    Aplikasi Berjalan Di Port:  [http://localhost:3000](http://localhost:3000)
+---
 
-6.  For development build:
+## 🔐 Login & Create Flow
 
-    -   Create `.env` file and specify the `VITE_PORT` (refer to `.env.example`) in `packages/ui`
-    -   Create `.env` file and specify the `PORT` (refer to `.env.example`) in `packages/server`
-    -   Run:
+1. Masuk ke `/register` untuk membuat akun
+2. Lalu masuk ke aplikasi `/sign-in`
+3. Buat Flow baru lalu load file chatflow dan konfigurasikan di environment Laravel  
 
-        ```bash
-        pnpm dev
-        ```
+> 📁 [chatbot/assets/chatflow.json](https://github.com/alelawar/saynana/blob/main/chatbot/assets/chatflow.json)  
+> 🗃️ [chatbot/assets/saynana.pdf](https://github.com/alelawar/saynana/blob/main/chatbot/assets/saynana.pdf)  
 
-    Any code changes will reload the app automatically on [http://localhost:8080](http://localhost:8080)
+## Konfigurasi Video ⚙️
 
-## 🌱 Env Variables
+[![Watch the video](https://img.youtube.com/vi/9jp3mo0t5kw/0.jpg)](https://youtu.be/9jp3mo0t5kw)
 
-Flowise supports different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Read [more](https://github.com/FlowiseAI/Flowise/blob/main/CONTRIBUTING.md#-env-variables)
-
-## 📖 Documentation
-
-You can view the Flowise Docs [here](https://docs.flowiseai.com/)
-
-## 🌐 Self Host
-
-Deploy Flowise self-hosted in your existing infrastructure, we support various [deployments](https://docs.flowiseai.com/configuration/deployment)
-
--   [AWS](https://docs.flowiseai.com/configuration/deployment/aws)
--   [Azure](https://docs.flowiseai.com/configuration/deployment/azure)
--   [Digital Ocean](https://docs.flowiseai.com/configuration/deployment/digital-ocean)
--   [GCP](https://docs.flowiseai.com/configuration/deployment/gcp)
--   [Alibaba Cloud](https://computenest.console.aliyun.com/service/instance/create/default?type=user&ServiceName=Flowise社区版)
--   <details>
-      <summary>Others</summary>
-
-    -   [Railway](https://docs.flowiseai.com/configuration/deployment/railway)
-
-        [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/pn4G8S?referralCode=WVNPD9)
-
-    -   [Render](https://docs.flowiseai.com/configuration/deployment/render)
-
-        [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://docs.flowiseai.com/configuration/deployment/render)
-
-    -   [HuggingFace Spaces](https://docs.flowiseai.com/deployment/hugging-face)
-
-        <a href="https://huggingface.co/spaces/FlowiseAI/Flowise"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg" alt="HuggingFace Spaces"></a>
-
-    -   [Elestio](https://elest.io/open-source/flowiseai)
-
-        [![Deploy on Elestio](https://elest.io/images/logos/deploy-to-elestio-btn.png)](https://elest.io/open-source/flowiseai)
-
-    -   [Sealos](https://template.sealos.io/deploy?templateName=flowise)
-
-        [![Deploy on Sealos](https://sealos.io/Deploy-on-Sealos.svg)](https://template.sealos.io/deploy?templateName=flowise)
-
-    -   [RepoCloud](https://repocloud.io/details/?app_id=29)
-
-        [![Deploy on RepoCloud](https://d16t0pc4846x52.cloudfront.net/deploy.png)](https://repocloud.io/details/?app_id=29)
-
-      </details>
-
-## ☁️ Flowise Cloud
-
-Get Started with [Flowise Cloud](https://flowiseai.com/).
-
-## 🙋 Support
-
-Feel free to ask any questions, raise problems, and request new features in [Discussion](https://github.com/FlowiseAI/Flowise/discussions).
-
-## 🙌 Contributing
-
-Thanks go to these awesome contributors
-
-<a href="https://github.com/FlowiseAI/Flowise/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=FlowiseAI/Flowise" />
-</a><br><br>
-
-See [Contributing Guide](CONTRIBUTING.md). Reach out to us at [Discord](https://discord.gg/jbaHfsRVBW) if you have any questions or issues.
-
-[![Star History Chart](https://api.star-history.com/svg?repos=FlowiseAI/Flowise&type=Timeline)](https://star-history.com/#FlowiseAI/Flowise&Date)
-
-## 📄 License
-
-Source code in this repository is made available under the [Apache License Version 2.0](LICENSE.md).
