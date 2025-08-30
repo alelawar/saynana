@@ -6,7 +6,7 @@
         <div class="relative bottom-6 ml-[-50%] h-[200px] w-[200%] rounded-t-[100%] bg-gradient-to-b bg-white"></div>
 
         <!-- Isi konten -->
-        <div class="relative -top-24 z-10 mx-auto overflow-hidden">
+        <div class="relative -top-24 z-10 mx-auto overflow-hidden pt-10">
             <div class="text-center mb-12">
                 <span class="px-4 py-2 bg-[#57352C] text-white rounded-full text-lg  mt-5">produk kita</span>
                 <h2 class="mt-4 text-3xl md:text-5xl sour-gummy text-[#3A1E13]">

@@ -16,10 +16,6 @@ use App\Http\Controllers\DashboardProductController;
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
-Route::get('/counter', function () {
-    return view('welcome');
-});
-
 Route::get('/login', function () {
     return view('login.index');
 })->middleware('guest');

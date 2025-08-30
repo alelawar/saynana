@@ -71,7 +71,7 @@ class DashboardProductController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:225',
             'stock' => 'required|integer',
-            'price' => 'required',
+            'price' => 'required|max:100000000',
             'bg_color' => 'required',
             'description' => 'required',
             'image' => 'file|image|max:5024'

@@ -19,7 +19,7 @@ class EditConfirmedOrder extends Component
     public function mount(Order $order)
     {
         $this->order = Order::where('id', $order->id)
-            ->where('status', 'confirmed')
+            ->where('status', 'paid')
             ->with(
                 'voucher',
                 'items.product',
@@ -40,7 +40,7 @@ class EditConfirmedOrder extends Component
     public function rules()
     {
         return [
-            'order_status' => 'required|in:confirmed,packing,canceled',
+            'order_status' => 'required|in:paid,packing,canceled',
             'message' => 'required|string|max:500',
         ];
     }

@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('email')->default('name');
             $table->string('address_line')->default('name');
             $table->string('phone')->nullable();
-            $table->string('message')->default('Terimakasih! Pesanan Anda sedang kami proses untuk packing. tunggu ');
+            $table->string('message')->default('Terimakasih! Pesanan Anda sedang kami proses untuk packing. mohon tunggu proses packing ');
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@ git clone https://github.com/alelawar/saynana.git
 ### 2. Masuk ke Folder Project
 
 ```bash
-cd saynana/project
+cd saynana/project\ \(Laravel\)/
 ```
 
 ### 3. Install Dependency 📦
@@ -89,31 +89,39 @@ npm run dev
 
 ---
 
-## 🔐 Login & Autentikasi
+# 🔐 Login & Autentikasi
 
-Aplikasi ini memiliki 2 role:
+Aplikasi ini memiliki 2 role utama:
 
-- **Seller** → Bisa mengakses dashboard
-- **Buyer / User Biasa** → Akses terbatas untuk berbelanja
+- **Seller** → Bisa mengakses **Dashboard** dan sistem manajemen aplikasi.  
+- **Buyer / User Biasa** → Hanya bisa melakukan pembelian (akses terbatas).  
 
-### 👤 Akun Dummy
-
-Masuk ke halaman `/login` untuk masuk ke aplikasi.
-
-#### Seller 👨‍💼
-
-- **Email:** `seller@email.com`
-- **Password:** `password`
-
-Setelah login, masuk ke halaman `/dashboard` untuk mengakses sistem manajemen aplikasi.
-
-#### Untuk User Baru
-
-Buat akun baru di `/register` untuk mendapatkan diskon sampai 30%!
+> 🛠️ **Catatan Developer**:  
+> Jika ingin mengubah role user, bisa langsung edit di **database `users`** pada field **`role`**, lalu ubah nilainya menjadi `'seller'` (tipe data enum).  
 
 ---
 
-## 📩 Mailer Configuration
+## 👤 Akun Dummy  (Seller)
+
+Akses login melalui halaman **`/login`**.  
+
+### 🔑 Akun Seller  
+| Email              | Password   |
+|--------------------|------------|
+| `seller@email.com` | `password` |
+
+Setelah login, masuk ke halaman **`/dashboard`** untuk mengakses sistem manajemen aplikasi.  
+
+---
+
+## 🆕 Registrasi User Baru  
+Buat akun baru melalui **`/register`** untuk mendapatkan **diskon hingga 30%** saat berbelanja.  
+
+---
+
+## 📩 Mailer Configuration (Optional)
+
+> 💡 **Tip:** Jika ingin mengaktifkan **Mailer** (untuk mengirim data pesanan ke pembeli), ubah setting di bawah sesuai layanan email yang Anda gunakan.
 
 Untuk mengaktifkan **Mailer**, lakukan pengaturan pada file `.env` di bagian berikut:
 
@@ -128,7 +136,7 @@ MAIL_FROM_ADDRESS="hello@example.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
-> 💡 **Tip:** Jika ingin mengaktifkan **Mailer** (untuk mengirim data pesanan ke pembeli), ubah setting di atas sesuai layanan email yang Anda gunakan.
+
 
 🔗 **Referensi:** [Laravel Mail Documentation](https://laravel.com/docs/mail) ↗️
 

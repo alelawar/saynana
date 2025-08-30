@@ -31,7 +31,7 @@ class VoucherController extends Controller
         // dd($request);
         $validated = $request->validate([
             'code' => 'required|unique:vouchers,code',
-            'percentage' => 'required|numeric',
+            'percentage' => 'required|numeric|max:100',
             'max_uses' => 'required|numeric',
         ]);
 

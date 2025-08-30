@@ -14,7 +14,7 @@
         <!-- City -->
         <div>
             <label for="city" class="block text-sm font-semibold mb-2">Kota</label>
-            <select wire:model.live="cityId" id="city" class="w-full border rounded px-3 py-2" {{ empty($cities) ? 'disabled' : '' }} name="cityId">
+            <select wire:model.live="cityId" id="city" class="w-full border rounded px-3 py-2 disabled:cursor-not-allowed disabled:bg-slate-100" {{ empty($cities) ? 'disabled' : '' }} name="cityId">
                 <option value="">Pilih Kota</option>
                 @foreach($cities as $city)
                     <option value="{{ $city->id }}">{{ $city->name }}</option>

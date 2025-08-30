@@ -1,12 +1,18 @@
-
 <header class="fixed top-0 left-0 w-screen  lg:px-16 lg:pt-6 z-50 font-medium ">
     <div
         class="bg-white shadow-[0_0_6px_rgba(0,0,0,0.5)] rounded-b-md lg:rounded-3xl mx-auto p-1.5 flex justify-between">
         <!-- Left Menu (Desktop) -->
         <nav class="hidden lg:flex space-x-4 w-1/3">
             <a href="/"
-                class="text-[#3A1E13] hover:text-[#57352C] bg-[#3A1E13]/15 px-6 flex items-center rounded-2xl">Beranda</a>
-            <a href="/search-order" class="text-[#3A1E13] hover:text-[#57352C] flex items-center">Cari Pesanan</a>
+            class="text-[#3A1E13] hover:text-[#57352C] px-6 flex items-center rounded-2xl
+            {{ Request::is('/') ? 'bg-[#3A1E13]/15' : '' }}">
+            Beranda
+            </a>
+            <a href="/search-order"
+            class="text-[#3A1E13] hover:text-[#57352C] px-6 flex items-center rounded-2xl
+            {{ Request::is('search-order') ? 'bg-[#3A1E13]/15' : '' }}">
+            Cari Pesanan
+            </a>
         </nav>
 
         <!-- Logo -->
@@ -17,9 +23,10 @@
         </div>
 
         <!-- Right Menu (Desktop) -->
-        <nav class="hidden md:flex space-x-4 w-1/3 justify-end">
+        <nav class="hidden lg:flex space-x-4 w-1/3 justify-end">
             @auth()
-            <a href="/profile" class="text-[#3A1E13] hover:text-[#57352C] flex items-center">Profile</a>
+            <a href="/profile" class="text-[#3A1E13] hover:text-[#57352C] px-6 flex items-center rounded-2xl
+            {{ Request::is('profile') ? 'bg-[#3A1E13]/15' : '' }}">Profile</a>
                 @else
             <a href="/login" class="text-[#3A1E13] hover:text-[#57352C] flex items-center">Dapatkan diskon</a>
             <a href="/login" class="text-[#3A1E13] hover:text-[#57352C] flex items-center">Masuk</a>
@@ -40,25 +47,45 @@
     </div>
 
     <!-- Mobile Menu Popup -->
-    <div id="mobileMenu" class="fixed inset-0 bg-white z-40 hidden flex flex-col p-6">
-        <!-- Close Button -->
-        <button class="self-end text-3xl text-[#2A1E13] mb-6" onclick="toggleMenu()">
-            ✕
-        </button>
+<div id="mobileMenu" class="fixed inset-0 bg-white z-40 hidden flex flex-col p-6">
+    <!-- Close Button -->
+    <button class="self-end text-3xl text-[#2A1E13] mb-6" onclick="toggleMenu()">
+        ✕
+    </button>
 
-        <!-- Menu Items (same as desktop) -->
-        <nav class="flex flex-col space-y-6 text-lg">
-            <a href="#" class="text-[#3A1E13] hover:text-[#57352C]">Beranda</a>
-            <a href="/search-order" class="text-[#3A1E13] hover:text-[#57352C]">Cari Pesanan</a>
-            
-            @auth
-            <a href="/profile" class="text-[#3A1E13] hover:text-[#57352C]">Profile</a>
-            @else
-                <a href="/login" class="text-[#3A1E13] hover:text-[#57352C]">Dapatkan diskon</a>
-                <a href="/login" class="text-[#3A1E13] hover:text-[#57352C]">Masuk</a>
-            @endauth
-        </nav>
-    </div>
+    <!-- Menu Items (same as desktop) -->
+    <nav class="flex flex-col space-y-6 text-lg">
+        <a href="/"
+           class="text-[#3A1E13] hover:text-[#57352C] px-4 py-2 rounded-2xl
+           {{ Request::is('/') ? 'bg-[#3A1E13]/15' : '' }}">
+           Beranda
+        </a>
+
+        <a href="/search-order"
+           class="text-[#3A1E13] hover:text-[#57352C] px-4 py-2 rounded-2xl
+           {{ Request::is('search-order') ? 'bg-[#3A1E13]/15' : '' }}">
+           Cari Pesanan
+        </a>
+
+        @auth
+            <a href="/profile"
+               class="text-[#3A1E13] hover:text-[#57352C] px-4 py-2 rounded-2xl
+               {{ Request::is('profile') ? 'bg-[#3A1E13]/15' : '' }}">
+               Profile
+            </a>
+        @else
+            <a href="/login" class="text-[#3A1E13] hover:text-[#57352C] px-4 py-2 rounded-2xl
+               {{ Request::is('login') ? 'bg-[#3A1E13]/15' : '' }}">
+               Dapatkan diskon
+            </a>
+            <a href="/login" class="text-[#3A1E13] hover:text-[#57352C] px-4 py-2 rounded-2xl
+               {{ Request::is('login') ? 'bg-[#3A1E13]/15' : '' }}">
+               Masuk
+            </a>
+        @endauth
+    </nav>
+</div>
+
     <!-- Cart Open -->
 
 </header>

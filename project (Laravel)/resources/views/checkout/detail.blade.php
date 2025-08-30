@@ -10,16 +10,18 @@
             </div>
 
             <!-- Order Summary Card -->
-            <div class="bg-white rounded-2xl shadow-lg border-l-4 border-yellow-400 p-6 mb-8 hover:shadow-xl transition-shadow duration-300">
+            <div
+                class="bg-white rounded-2xl shadow-lg border-l-4 border-yellow-400 p-6 mb-8 hover:shadow-xl transition-shadow duration-300">
                 <div class="flex items-center mb-4">
                     <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center mr-4">
                         <svg class="w-6 h-6 text-[#3A1E13]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                     </div>
                     <h2 class="text-2xl font-bold text-[#3A1E13]">Informasi Order</h2>
                 </div>
-                
+
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="bg-yellow-50 rounded-lg p-4">
                         <p class="text-sm font-medium text-[#3A1E13] opacity-70 mb-1">Order Code</p>
@@ -38,7 +40,14 @@
                     </div>
                     <div class="bg-yellow-50 rounded-lg p-4">
                         <p class="text-sm font-medium text-[#3A1E13] opacity-70 mb-1">Total Price</p>
-                        <p class="text-lg font-bold text-[#3A1E13]">Rp {{ number_format($order->total_price, 0, ',', '.') }}</p>
+                        <p class="text-lg font-bold text-[#3A1E13]">Rp
+                            {{ number_format($order->total_price, 0, ',', '.') }}
+                        </p>
+                    </div>
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <p class="text-sm font-medium text-[#3A1E13] opacity-70 mb-1">Voucher Code</p>
+                        <p class="text-lg font-bold text-[#3A1E13]">{{ $order->voucher->code ?? 'Tidak Ada'}}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -49,7 +58,8 @@
                     <div class="flex items-center mb-6">
                         <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center mr-4">
                             <svg class="w-6 h-6 text-[#3A1E13]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </div>
                         <h2 class="text-2xl font-bold text-[#3A1E13]">Data Pemesan</h2>
@@ -81,7 +91,8 @@
                             </div>
                             <div>
                                 <p class="text-sm font-medium text-[#3A1E13] opacity-70 mb-1">Provinsi</p>
-                                <p class="text-lg text-[#3A1E13]">{{ $order->dataOrder->city->province->province ?? '-' }}</p>
+                                <p class="text-lg text-[#3A1E13]">{{ $order->dataOrder->city->province->province ?? '-' }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +105,8 @@
                     <div class="flex items-center mb-6">
                         <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center mr-4">
                             <svg class="w-6 h-6 text-[#3A1E13]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                         </div>
                         <h2 class="text-2xl font-bold text-[#3A1E13]">Data Layanan</h2>
@@ -118,7 +130,8 @@
                 <div class="flex items-center mb-6">
                     <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center mr-4">
                         <svg class="w-6 h-6 text-[#3A1E13]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                         </svg>
                     </div>
                     <h2 class="text-xl md:text-2xl font-bold text-[#3A1E13]">Items</h2>
@@ -126,13 +139,14 @@
 
                 <div class="space-y-4">
                     @foreach($order->items as $item)
-                        <div class="flex items-center justify-between p-4 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors duration-200">
+                        <div
+                            class="flex items-center justify-between p-4 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors duration-200">
                             <div class="flex-1">
                                 <h3 class="md:text-lg font-semibold text-[#3A1E13] mb-1">
                                     {{ $item->product->name ?? 'Produk tidak ditemukan' }}
                                 </h3>
                                 <p class="text-[#3A1E13] text-xs opacity-70">
-                                    Kuantitas: <span class="font-semibold">(x{{ $item->quantity ?? 1 }})</span>
+                                    Kuantitas: <span class="font-semibold">(x{{ $item->qty ?? 1 }})</span>
                                 </p>
                             </div>
                             <div class="text-right">
@@ -143,6 +157,26 @@
                             </div>
                         </div>
                     @endforeach
+                    <div
+                        class="flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
+                        <div class="flex-1">
+                            <h3 class="md:text-lg font-semibold text-[#3A1E13] mb-1">
+                                Ongkos Kirim
+                                <p><i class="font-semibold bi bi-cart3"></i></p>
+                            </h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold text-[#3A1E13]">
+                                @if(($city->shipping_cost ?? 0) == 0)
+                                    Gratis
+                                @else
+                                    Rp {{ number_format($city->shipping_cost, 0, ',', '.') }}
+                                @endif
+                            </p>
+
+                            <p class="text-sm text-[#3A1E13] opacity-70">{{$city->name}}</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Total Summary -->
@@ -158,7 +192,8 @@
 
             <!-- Back Button -->
             <div class="text-center mt-8">
-                <button onclick="history.back()" class="inline-flex items-center px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-[#3A1E13] font-semibold rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg">
+                <button onclick="history.back()"
+                    class="inline-flex items-center px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-[#3A1E13] font-semibold rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>

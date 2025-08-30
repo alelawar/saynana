@@ -20,7 +20,6 @@ class OrderController extends Controller
         // ambil jumlah order per tanggal
         $orders = Order::selectRaw('DAY(created_at) as day, COUNT(*) as total')
             ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
-            // ->where('status', 'confirmed')
             ->whereNotIn('status', ['pending'])
             ->groupBy('day')
             ->pluck('total', 'day');

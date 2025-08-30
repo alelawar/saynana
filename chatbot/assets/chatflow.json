@@ -215,9 +215,9 @@
         ],
         "inputs": {
           "cache": "",
-          "modelName": "gemini-1.5-flash",
+          "modelName": "gemini-2.0-flash",
           "customModelName": "",
-          "temperature": "1",
+          "temperature": "1.5",
           "streaming": true,
           "maxOutputTokens": "",
           "topP": "",
@@ -360,7 +360,7 @@
         "selected": false
       },
       "width": 300,
-      "height": 535,
+      "height": 536,
       "selected": false,
       "positionAbsolute": {
         "x": 2278.336420154326,
@@ -589,7 +589,7 @@
         "selected": false
       },
       "width": 300,
-      "height": 538,
+      "height": 539,
       "selected": false,
       "positionAbsolute": {
         "x": 1408.691072598822,
@@ -669,7 +669,7 @@
         "selected": false
       },
       "width": 300,
-      "height": 480,
+      "height": 481,
       "selected": false,
       "positionAbsolute": {
         "x": 930.4876662608709,
@@ -784,7 +784,7 @@
         "selected": false
       },
       "width": 300,
-      "height": 523,
+      "height": 524,
       "selected": false,
       "positionAbsolute": {
         "x": 1285.303608031003,

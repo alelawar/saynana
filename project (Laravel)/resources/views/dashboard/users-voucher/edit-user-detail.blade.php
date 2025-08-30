@@ -91,7 +91,7 @@
                                 <span class="px-2 py-1 text-xs font-medium rounded border
                                 @switch($order->status)
                                     @case('pending') bg-yellow-100 text-yellow-700 border-yellow-200 @break
-                                    @case('confirmed') bg-blue-100 text-blue-700 border-blue-200 @break
+                                    @case('paid') bg-blue-100 text-blue-700 border-blue-200 @break
                                     @case('packing') bg-purple-100 text-purple-700 border-purple-200 @break
                                     @case('shipping') bg-orange-100 text-orange-700 border-orange-200 @break
                                     @case('success') bg-green-100 text-green-700 border-green-200 @break

@@ -46,7 +46,7 @@ class EditPackingOrder extends Component
     public function rules()
     {
         return [
-            'order_status' => 'required|in:confirmed,packing,shipping,canceled',
+            'order_status' => 'required|in:paid,packing,shipping,canceled',
             'message' => 'required|string|max:500',
             'shipping_provider' => 'required',
             'resi' => 'required'

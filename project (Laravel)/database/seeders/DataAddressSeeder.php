@@ -25,9 +25,9 @@ class DataAddressSeeder extends Seeder
 
         // Cities Jawa Barat (contoh data umum)
         $jabarCities = [
-            ['name' => 'Bandung', 'shipping_cost' => 20000],
-            ['name' => 'Bekasi', 'shipping_cost' => 15000],
-            ['name' => 'Bogor', 'shipping_cost' => 18000],
+            ['name' => 'Bandung', 'shipping_cost' => 0],
+            ['name' => 'Bekasi', 'shipping_cost' => 0],
+            ['name' => 'Bogor', 'shipping_cost' => 0],
         ];
 
         foreach ($jabarCities as $city) {
@@ -40,11 +40,11 @@ class DataAddressSeeder extends Seeder
 
         // Cities DKI Jakarta (contoh data umum)
         $jakartaCities = [
-            ['name' => 'Jakarta Pusat', 'shipping_cost' => 0],
-            ['name' => 'Jakarta Utara', 'shipping_cost' => 0],
-            ['name' => 'Jakarta Selatan', 'shipping_cost' => 0],
-            ['name' => 'Jakarta Timur', 'shipping_cost' => 0],
-            ['name' => 'Jakarta Barat', 'shipping_cost' => 0],
+            ['name' => 'Jakarta Pusat', 'shipping_cost' => 8000],
+            ['name' => 'Jakarta Utara', 'shipping_cost' => 8000],
+            ['name' => 'Jakarta Selatan', 'shipping_cost' => 8000],
+            ['name' => 'Jakarta Timur', 'shipping_cost' => 8000],
+            ['name' => 'Jakarta Barat', 'shipping_cost' => 8000],
         ];
 
         foreach ($jakartaCities as $city) {

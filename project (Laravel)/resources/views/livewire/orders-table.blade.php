@@ -1,7 +1,7 @@
 <div>
     {{-- Filter Tabs --}}
     <div class="flex flex-wrap gap-2 mb-4">
-        @foreach ([ 'confirmed', 'packing', 'shipping', 'success', 'canceled'] as $st)
+        @foreach (['pending', 'paid', 'packing', 'shipping', 'success', 'canceled'] as $st)
             <button 
                 wire:click="setStatus('{{ $st }}')"
                 wire:loading.attr="disabled"
@@ -85,7 +85,7 @@
                             <span class="px-2 py-1 rounded text-xs
                                 @switch($order->status)
                                     @case('pending') bg-yellow-200 text-yellow-800 @break
-                                    @case('confirmed') bg-blue-200 text-blue-800 @break
+                                    @case('paid') bg-blue-200 text-blue-800 @break
                                     @case('packing') bg-purple-200 text-purple-800 @break
                                     @case('shipping') bg-orange-200 text-orange-800 @break
                                     @case('success') bg-green-200 text-green-800 @break
@@ -96,61 +96,68 @@
                         </td>
                         <td class="px-4 py-2">{{ $order->created_at->format('d M Y') }}</td>
                         <td class="px-4 py-2 flex gap-2">
-                            <a href="/dashboard/orders/{{ $order->id }}/edit"><i class="bi bi-pencil-fill text-blue-600"></i> Edit</a>
-                            @if(in_array($order->status, ['success', 'canceled']))
-                            <div x-data="{ showConfirm: false }">
-                                <!-- Delete Button -->
-                                <button 
-                                    @click="showConfirm = true"
-                                    class="text-red-600 hover:text-red-800 transition-colors duration-200 cursor-pointer">
-                                   | <i class="bi bi-trash3"></i>
-                                </button>
-                                
-                                <!-- Confirmation Modal -->
-                                <div 
-                                    x-show="showConfirm" 
-                                    class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-                                    @click="showConfirm = false">
+                            @if($order->status === 'pending')
+                                <span class="text-gray-500 text-sm italic">
+                                    Menunggu pembayaran, <br> data akan hilang dalam beberapa jam
+                                </span>
+                            @else
+                                <a href="/dashboard/orders/{{ $order->id }}/edit" class="text-blue-600 hover:text-blue-800">
+                                    <i class="bi bi-pencil-fill"></i> Edit
+                                </a>
+
+                                @if(in_array($order->status, ['success', 'canceled']))
+                                <div x-data="{ showConfirm: false }">
+                                    <!-- Delete Button -->
+                                    <button 
+                                        @click="showConfirm = true"
+                                        class="text-red-600 hover:text-red-800 transition-colors duration-200 cursor-pointer">
+                                    | <i class="bi bi-trash3"></i>
+                                    </button>
                                     
+                                    <!-- Confirmation Modal -->
                                     <div 
-                                        @click.stop
-                                        class="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-xl">
+                                        x-show="showConfirm" 
+                                        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+                                        @click="showConfirm = false">
                                         
-                                        <div class="flex items-center mb-4">
-                                            <div class="flex-shrink-0">
-                                            </div>
-                                            <div class="ml-4">
-                                                <h3 class="text-lg font-medium text-gray-900">
-                                                    Hapus Order
-                                                </h3>
-                                                <p class="text-sm text-gray-500 mt-1">
-                                                    Yakin mau hapus order ini? Tindakan ini tidak bisa dibatalkan.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="flex justify-end space-x-3">
-                                            <button 
-                                                @click="showConfirm = false"
-                                                type="button" 
-                                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                Batal
-                                            </button>
+                                        <div 
+                                            @click.stop
+                                            class="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-xl">
                                             
-                                            <form action="{{ route('orders.destroy', $order->id) }}" method="POST" class="inline">
-                                                @csrf
-                                                @method('DELETE')
+                                            <div class="flex items-center mb-4">
+                                                <div class="ml-4">
+                                                    <h3 class="text-lg font-medium text-gray-900">
+                                                        Hapus Order
+                                                    </h3>
+                                                    <p class="text-sm text-gray-500 mt-1">
+                                                        Yakin mau hapus order ini? Tindakan ini tidak bisa dibatalkan.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex justify-end space-x-3">
                                                 <button 
-                                                    type="submit"
-                                                    class="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                                    Ya, Hapus
+                                                    @click="showConfirm = false"
+                                                    type="button" 
+                                                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                    Batal
                                                 </button>
-                                            </form>
+                                                
+                                                <form action="{{ route('orders.destroy', $order->id) }}" method="POST" class="inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button 
+                                                        type="submit"
+                                                        class="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                                        Ya, Hapus
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
+                                @endif
+                            @endif
                         </td>
                     </tr>
                 @empty

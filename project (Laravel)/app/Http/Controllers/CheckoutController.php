@@ -24,10 +24,11 @@ class CheckoutController extends Controller
         $validated = $request->validate([
             'items' => 'required|array|min:1',
             'items.*.product_id' => 'required|exists:products,id',
-            'items.*.qty' => 'required|integer|min:1',
-            'items.*.price' => 'required|numeric|min:0',
+            'items.*.qty' => 'required|integer|min:1|max:100', // maksimal 100 qty per item
+            'items.*.price' => 'required|numeric|min:0|max:10000000', // maksimal harga 10 juta
             'voucher_code' => 'nullable|string|exists:vouchers,code',
         ]);
+
 
         $totalPrice = collect($validated['items'])->sum(fn($item) => $item['qty'] * $item['price']);
         $discountAmount = 0;
@@ -40,7 +41,7 @@ class CheckoutController extends Controller
 
             if ($publicVoucher) {
                 $usageCount = Order::where('voucher_id', $publicVoucher->id)
-                    ->where('status', 'confirmed') // hitung yang sudah bayar saja
+                    ->where('status', 'paid') // hitung yang sudah bayar saja
                     ->count();
 
                 if ($publicVoucher->max_uses && $usageCount >= $publicVoucher->max_uses) {
@@ -121,10 +122,11 @@ class CheckoutController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
-            'address' => 'required|string',
-            'final_price' => 'required',
+            'address' => 'required|string|max:500',
+            'final_price' => 'required|numeric|min:1|max:100000000', // maksimal 100 juta
             'voucher_code' => 'nullable|string|exists:vouchers,code'
         ]);
+
 
         if ($validator->fails()) {
             // Ambil pesan error pertama
@@ -171,7 +173,7 @@ class CheckoutController extends Controller
             }
         }
 
-        $order->status = 'confirmed';
+        $order->status = 'paid';
         $order->total_price = $validated['final_price'];
         $order->save();
 
@@ -207,7 +209,6 @@ class CheckoutController extends Controller
     public function detailOrder($code)
     {
         $order = Order::where('code', $code)
-            ->whereNotIn('status', ['pending'])
             ->with([
                 'shipping',
                 'items.product',

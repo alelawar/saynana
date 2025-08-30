@@ -1,7 +1,7 @@
-<footer class="px-4 md:px-8 pb-8">
+<footer class="px-4 md:px-8 pb-8 mt-4">
     <!-- Produk floating -->
     <div
-        class="w-full hidden md:flex justify-between relative -z-10 inset-0 translate-y-32 md:translate-y-44 px-4 md:px-8">
+        class="w-full hidden lg:flex justify-between relative -z-10 inset-0 translate-y-32 md:translate-y-44 px-4 md:px-8">
         <!-- Original flavor -->
         <div class="relative hidden md:flex w-fit justify-center items-center p-2 md:p-8">
             <!-- gambar depan -->
@@ -71,15 +71,15 @@
 
                 <!-- Sosial Media -->
                 <div class="flex space-x-3 md:space-x-4 text-xl md:text-2xl">
-                    <a href="#"
+                    <a href="https://www.tiktok.com/@saynanaofficial?_t=ZS-8zISQLg4Z8h&_r=1"
                         class="bg-[#5a3324] h-8 w-8 md:h-10 md:w-10 flex justify-center items-center rounded-lg md:rounded-xl hover:bg-yellow-400 hover:text-[#3a1e13] transition">
                         <i class="bi bi-tiktok text-sm md:text-base"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://youtube.com/@buynanaofficial3273?si=gYAQIHPeNZDcgXKt"
                         class="bg-[#5a3324] h-8 w-8 md:h-10 md:w-10 flex justify-center items-center rounded-lg md:rounded-xl hover:bg-yellow-400 hover:text-[#3a1e13] transition">
                         <i class="bi bi-youtube text-sm md:text-base"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://www.instagram.com/saynanaofficial?igsh=MTFiaXlybDVmNGdweQ=="
                         class="bg-[#5a3324] h-8 w-8 md:h-10 md:w-10 flex justify-center items-center rounded-lg md:rounded-xl hover:bg-yellow-400 hover:text-[#3a1e13] transition">
                         <i class="bi bi-instagram text-sm md:text-base"></i>
                     </a>
@@ -144,7 +144,7 @@
 
         <!-- Payment Methods -->
         <div
-            class="flex flex-wrap justify-center md:justify-between items-center gap-3 md:gap-0 md:space-x-6 py-6 md:py-8">
+            class="flex justify-center md:justify-between items-center gap-8 md:gap-0 md:space-x-6 py-6 md:py-8 scroll-container overflow-x-auto overflow-y-hidden">
             <img src="{{ asset('img/payment/payment-1.png') }}" alt="payment-1" class="h-6 md:h-8 lg:h-10" />
             <img src="{{asset('img/payment/payment-2.png')}}" alt="payment-2" class="h-6 md:h-8 lg:h-10" />
             <img src="{{asset('img/payment/payment-3.png')}}" alt="payment-3" class="h-6 md:h-8 lg:h-10" />

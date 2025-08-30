@@ -20,8 +20,13 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $q = $request->input('q'); // ambil input q dari form atau URL
-        $status = $request->input('status'); // ambil input status dari form
+        $validated = $request->validate([
+            'q' => 'nullable|string|min:3',
+            'status' => 'nullable|string'
+        ]);
+
+        $q = $validated['q'] ?? null;
+        $status = $validated['status'] ?? null;
 
         $query = Order::query();
 

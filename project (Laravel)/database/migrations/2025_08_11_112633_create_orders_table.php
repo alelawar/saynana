@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('code');
             $table->foreignId('voucher_id')->nullable()->constrained('vouchers');
             $table->unsignedBigInteger('total_price');
-            $table->enum('status', ['pending', 'confirmed', 'packing', 'shipping', 'success', 'canceled'])->default('pending');
+            $table->enum('status', ['pending', 'paid', 'packing', 'shipping', 'success', 'canceled'])->default('pending');
             $table->timestamps();
         });
     }

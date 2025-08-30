@@ -25,7 +25,7 @@ class OrderSeeder extends Seeder
 
         $messages = [
             'pending'   => 'Pesanan Anda sedang menunggu konfirmasi.',
-            'confirmed' => 'Pesanan Anda sudah dikonfirmasi, tunggu untuk proses packing.',
+            'paid' => 'Pesanan Anda sudah dikonfirmasi, tunggu untuk proses packing.',
             'packing'   => 'Pesanan Anda sudah kami packing, mohon tunggu untuk pesanan dikirim.',
             'shipping'  => 'Pesanan Anda sudah dikirim, mohon tunggu kurir untuk sampai ke alamat anda.',
             'success'   => 'Pesanan Anda sudah selesai, terimakasih!',
@@ -41,7 +41,7 @@ class OrderSeeder extends Seeder
                 'code' => rand(100000, 999999),
                 'voucher_id' => null,
                 'total_price' => 0, // nanti update
-                'status' => collect(['confirmed', 'packing', 'shipping', 'success'])->random(),
+                'status' => collect(['paid', 'packing', 'shipping', 'success'])->random(),
                 'created_at' => $date,
                 'updated_at' => $date,
             ]);

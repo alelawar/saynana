@@ -33,6 +33,17 @@
                     tooltipFontSize: 14
                 },
                 customCSS: `
+                .tooltip {
+    animation: fadeOut 0.5s ease 5s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
                     .chatbot-button {
                         box-shadow: 0 8px 25px rgba(250, 204, 21, 0.3);
                         border: 3px solid #3A1E13;
@@ -96,13 +107,13 @@
                     errorMessage: 'Oops! Sepertinya ada masalah teknis. Mohon coba lagi dalam beberapa saat 🔧',
                     backgroundColor: '#FFFFFF',
                     backgroundImage: 'data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="25" cy="25" r="1" fill="%23FACC15" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23FACC15" opacity="0.1"/><circle cx="25" cy="75" r="1" fill="%23FACC15" opacity="0.1"/><circle cx="75" cy="25" r="1" fill="%23FACC15" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>',
-                    
+
                     fontSize: 15,
                     starterPrompts: [
                         "✨ Kamu bisa ngapain aja?",
                         "🛒 Gimana cara pesan produk?",
                         "📞 Info kontak dan lokasi",
-                        "💡 Tips dan rekomendasi"
+                        "💡 Rekomendasi Best Seller"
                     ],
                     starterPromptFontSize: 14,
                     clearChatOnReload: false,

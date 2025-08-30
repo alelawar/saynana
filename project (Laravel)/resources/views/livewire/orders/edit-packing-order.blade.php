@@ -51,7 +51,7 @@
                     <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Nama Penyedia <span
                             class="text-red-600 font-bold">*</span>
                     </label>
-                    <input type="text" value="" wire:model="shipping_provider" placeholder="Ct: JNT, SPX"
+                    <input type="text" value="" wire:model="shipping_provider" placeholder="Ct: JNT, SPX" required
                         class="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 font-mono text-xs sm:text-sm">
                 </div>
 
@@ -59,7 +59,7 @@
                     <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">No Resi
                         <span class="text-red-600 font-bold">*</span>
                     </label>
-                    <input type="text" value="" wire:model="resi" placeholder="Ct: JN123****"
+                    <input type="text" required value="" wire:model="resi" placeholder="Ct: JN123****"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-800 font-mono text-xs sm:text-sm">
                 </div>
 

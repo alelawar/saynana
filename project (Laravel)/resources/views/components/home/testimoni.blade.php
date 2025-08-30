@@ -97,7 +97,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 class="font-semibold text-sm">Rini R.S</h4>
+                                            <h4 class="font-semibold text-sm">Nadine M.T</h4>
                                         </div>
                                     </div>
                                 </div>

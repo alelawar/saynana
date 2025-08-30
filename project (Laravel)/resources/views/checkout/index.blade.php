@@ -2,20 +2,6 @@
     <x-header />
 
     <div class="w-4xl mx-auto mt-30 px-4 sm:px-6 lg:px-16">
-        <!-- Success Header -->
-        <!-- <div class="bg-white rounded-2xl shadow-lg border border-yellow-100 overflow-hidden mb-8">
-            <div class="bg-gradient-to-r from-yellow-400 to-yellow-300 p-8 text-center">
-                <div class="mb-4">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg">
-                        <svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                </div>
-                <h1 class="text-4xl font-bold text-[#3A1E13] mb-2">Checkout Berhasil!</h1>
-                <p class="text-[#3A1E13]/80 text-lg">Terima kasih atas pesanan Anda 🎉</p>
-            </div>
-        </div> -->
 
         <!-- Order Code Section -->
         <div class="bg-white rounded-2xl shadow-lg border border-yellow-100 p-8 mb-8">
@@ -172,16 +158,52 @@
                     <!-- Personal Information -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-6">
-                            <x-auth.input name="name" type="text" placeholder="Masukkan nama lengkap" label="Nama Lengkap"
-                                value="{{ auth()->user()->name ?? '' }}" />
-
-                            <x-auth.input name="email" type="email" placeholder="contoh@email.com" label="Email"
-                                value="{{ auth()->user()->email ?? '' }}" />
+                        <div>
+                            <label for="name" class="block text-[#3A1E13] font-semibold mb-3">Nama Lengkap</label>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                id="name" 
+                                placeholder="Masukkan nama lengkap"
+                                value="{{ old('name', auth()->user()->name ?? '') }}"
+                                class="w-full px-4 py-4 border-2 border-yellow-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gradient-to-r from-white to-yellow-50 transition-all duration-300 placeholder-[#3A1E13]/50 text-[#3A1E13]"
+                            >
+                            @error('name')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                            <div>
+                                <label for="email" class="block text-[#3A1E13] font-semibold mb-3">Email</label>
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    id="email" 
+                                    placeholder="contoh@email.com"
+                                    value="{{ old('email', auth()->user()->email ?? '') }}"
+                                    class="w-full px-4 py-4 border-2 border-yellow-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gradient-to-r from-white to-yellow-50 transition-all duration-300 placeholder-[#3A1E13]/50 text-[#3A1E13]"
+                                >
+                                @error('email')
+                                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="space-y-6">
-                            <x-auth.input name="phone" type="tel" placeholder="08xxxxxxxxxx" label="Nomor Telepon (Opsional)"
-                                value="{{ auth()->user()->phone ?? '' }}" :required="false" />
+                           <!-- Nomor Telepon -->
+                            <div>
+                                <label for="phone" class="block text-[#3A1E13] font-semibold mb-3">Nomor Telepon (Opsional)</label>
+                                <input 
+                                    type="tel" 
+                                    name="phone" 
+                                    id="phone" 
+                                    placeholder="08xxxxxxxxxx"
+                                    value="{{ old('phone', auth()->user()->phone ?? '') }}"
+                                    class="w-full px-4 py-4 border-2 border-yellow-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gradient-to-r from-white to-yellow-50 transition-all duration-300 placeholder-[#3A1E13]/50 text-[#3A1E13]"
+                                >
+                                @error('phone')
+                                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
 
                             <div>
                                 <label class="block text-[#3A1E13] font-semibold mb-3 flex items-center">

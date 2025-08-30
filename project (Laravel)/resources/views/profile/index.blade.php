@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app title="Profile">
     <x-header />
 
     <div class="max-w-6xl mx-auto px-3 sm:px-5 mt-8 md:mt-30">
@@ -140,10 +140,10 @@
                                 <div>
                                     <p class="text-xs md:text-sm text-[#3A1E13]/70 font-medium">Status</p>
                                     <span class="inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold 
-                                                @if($order->status === 'completed') bg-green-100 text-green-800
-                                                @elseif($order->status === 'pending') bg-yellow-100 text-yellow-800
-                                                @elseif($order->status === 'processing') bg-blue-100 text-blue-800
-                                                @else bg-gray-100 text-gray-800 @endif">
+                                                                    @if($order->status === 'completed') bg-green-100 text-green-800
+                                                                    @elseif($order->status === 'pending') bg-yellow-100 text-yellow-800
+                                                                    @elseif($order->status === 'processing') bg-blue-100 text-blue-800
+                                                                    @else bg-gray-100 text-gray-800 @endif">
                                         {{ ucfirst($order->status) }}
                                     </span>
                                 </div>
@@ -214,91 +214,58 @@
                             di sini</p>
                     </div>
                 @endforelse
+                {{$orders->links()}}
             </div>
         </div>
 
         {{-- Voucher User --}}
-        @if ($vouchers)
-            <div class="bg-white rounded-lg md:rounded-2xl shadow-lg border border-yellow-100 overflow-hidden">
-                <div class="bg-gradient-to-r from-yellow-400 to-yellow-300 p-3 md:p-6">
-                    <h2 class="text-lg sm:text-xl md:text-3xl font-bold text-[#3A1E13] mb-1 md:mb-2 flex items-center">
-                        <svg class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 mr-2 md:mr-3" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                        </svg>
-                        Voucher Saya
-                    </h2>
-                    <p class="text-xs sm:text-sm md:text-base text-[#3A1E13]/80">
-                        Manfaatkan voucher untuk hemat lebih banyak
-                    </p>
-                </div>
+        @if ($vouchers && $vouchers->count())
+            @foreach ($vouchers as $v)
+                <div class="bg-white rounded-xl shadow-md border border-yellow-100 overflow-hidden">
+                    <div class="bg-gradient-to-r from-yellow-400 to-yellow-300 p-3">
+                        <h2 class="text-base font-bold text-[#3A1E13] mb-1 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                            </svg>
+                            Voucher Saya
+                        </h2>
+                        <p class="text-xs text-[#3A1E13]/80">Manfaatkan voucher untuk hemat lebih banyak</p>
+                    </div>
 
-                <div class="p-3 sm:p-4 md:p-8">
-                    <div
-                        class="bg-gradient-to-r from-yellow-50 via-white to-yellow-50 border-2 border-dashed border-yellow-300 rounded-lg md:rounded-2xl p-4 sm:p-6 md:p-8 relative overflow-hidden">
-
-                        <!-- Decorative circles -->
+                    <div class="p-4">
                         <div
-                            class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 md:-top-4 md:-left-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-yellow-400 rounded-full">
-                        </div>
-                        <div
-                            class="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 md:-top-4 md:-right-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-yellow-400 rounded-full">
-                        </div>
-                        <div
-                            class="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 md:-bottom-4 md:-left-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-yellow-400 rounded-full">
-                        </div>
-                        <div
-                            class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 md:-bottom-4 md:-right-4 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-yellow-400 rounded-full">
-                        </div>
+                            class="bg-gradient-to-r from-yellow-50 via-white to-yellow-50 border-2 border-dashed border-yellow-300 rounded-xl p-5 relative overflow-hidden shadow-sm">
 
-                        <div class="text-center relative z-10">
-                            <!-- Header Voucher -->
-                            <div
-                                class="bg-[#3A1E13] text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-lg md:rounded-xl inline-block mb-3 md:mb-4 shadow-lg">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 mx-auto mb-1 sm:mb-2" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v13m0-13V6a2 2 0 112 0v1m-2 0V6a2 2 0 00-2 0v1m2 0h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <p class="text-[10px] sm:text-xs md:text-sm font-medium">Kode Voucher</p>
-                            </div>
+                            <!-- kode voucher -->
+                            <div class="text-center relative z-10">
+                                <div class="bg-[#3A1E13] text-white px-4 py-2 rounded-lg inline-block mb-3 shadow-md">
+                                    <p class="text-[11px] font-medium">Kode Voucher</p>
+                                </div>
 
-                            <!-- Kode -->
-                            <div
-                                class="bg-white rounded-lg p-3 sm:p-4 md:p-6 border border-yellow-200 shadow-inner mb-3 md:mb-4">
-                                <span id="voucher-code"
-                                    class="text-lg sm:text-xl md:text-3xl font-bold text-[#3A1E13] tracking-widest break-words">
-                                    {{ $vouchers->voucher->code }}
-                                </span>
-                            </div>
+                                <div class="bg-white rounded-lg p-3 border border-yellow-200 shadow-inner mb-3">
+                                    <span id="voucher-code"
+                                        class="text-lg font-bold text-[#3A1E13] tracking-widest break-words">
+                                        {{ $v->voucher->code }}
+                                    </span>
+                                </div>
 
-                            <!-- Button -->
-                            <button onclick="copyVoucher()"
-                                class="bg-yellow-400 hover:bg-yellow-500 text-[#3A1E13] px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 flex items-center mx-auto shadow-lg hover:shadow-xl transform hover:-translate-y-2">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-1 sm:mr-2 md:mr-3" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                </svg>
-                                Salin Kode
-                            </button>
-
-                            <!-- Copy Message -->
-                            <div id="copy-msg"
-                                class="hidden mt-3 md:mt-4 text-green-600 font-medium text-sm sm:text-base md:text-lg flex items-center justify-center">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Kode berhasil disalin!
+                                <button onclick="copyVoucher()"
+                                    class="bg-yellow-400 hover:bg-yellow-500 text-[#3A1E13] px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 flex items-center mx-auto shadow-md hover:shadow-lg hover:-translate-y-1">
+                                    Salin Kode
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+            @endforeach
+        @else
+            <div
+                class="text-center shadow-xl bg-gradient-to-r mb-8 from-white to-yellow-50 rounded-lg md:rounded-xl border border-yellow-200 py-10">
+                <h3 class="text-base font-semibold text-[#3A1E13]">Tidak ada voucher yang tersedia</h3>
             </div>
         @endif
+
 
 
         <script>
@@ -341,4 +308,5 @@
         </script>
 
     </div>
+    <x-footer />
 </x-layouts.app>

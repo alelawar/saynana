@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $products = [
-            ['name' => 'Sale Pisang Original', 'description' => 'Sale Wenak', 'price' => 13000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-original.png'],
+            ['name' => 'Sale Pisang Original', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-original.png'],
 
             ['name' => 'Sale Pisang Chocolate', 'description' => 'Sale Wenak', 'price' => 15000, 'stock' => 50, 'img_url' => 'img/product/sale-pisang-chocolate.png', 'bg_color' => '#9D734B'],
 

@@ -10,7 +10,7 @@ class OrderEdit extends Component
     public Order $order;
 
     protected $map = [
-        'confirmed' => 'orders.edit-confirmed-order',
+        'paid' => 'orders.edit-confirmed-order',
         'packing' => 'orders.edit-packing-order',
         'shipping'  => 'orders.edit-shipping-order',
         'success'  => 'orders.edit-success-order',

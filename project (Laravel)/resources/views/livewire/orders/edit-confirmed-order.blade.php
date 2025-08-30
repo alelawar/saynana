@@ -32,7 +32,7 @@
                     </label>
                     <select wire:model="order_status"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm">
-                        <option value="confirmed" {{ $order->status == 'confirmed' ? 'selected' : '' }}>Confirmed</option>
+                        <option value="paid" {{ $order->status == 'paid' ? 'selected' : '' }}>Paid</option>
                         <option value="packing" {{ $order->status == 'packing' ? 'selected' : '' }}>Packing</option>
                         <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>Canceled</option>
                     </select>

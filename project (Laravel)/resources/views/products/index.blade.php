@@ -1,4 +1,4 @@
-<x-layouts.app title="Product Page">
+<x-layouts.app title="Saynana | Keripik Pisang Berkualitas">
    {{-- <livewire:nav-header /> --}}
    <x-header/>
    <x-home.hero/>

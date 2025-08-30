@@ -10,7 +10,7 @@ class OrdersTable extends Component
 {
     use WithPagination;
 
-    public $status = 'confirmed';
+    public $status = 'paid';
     public $search = '';
     public $paginationTheme = 'tailwind';
     public $statusCounts = [];
@@ -57,7 +57,7 @@ class OrdersTable extends Component
             });
         }
 
-        $statuses = ['pending', 'confirmed', 'packing', 'shipping', 'success', 'canceled'];
+        $statuses = ['pending', 'paid', 'packing', 'shipping', 'success', 'canceled'];
 
         foreach ($statuses as $status) {
             $this->statusCounts[$status] = (clone $baseQuery)->where('status', $status)->count();
